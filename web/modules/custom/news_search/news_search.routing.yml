@@ -1,0 +1,7 @@
+news_search_settings:
+  path: '/admin/config/search/news-search'
+  defaults:
+    _form: '\Drupal\news_search\Form\NewsSearchSettingsForm'
+    _title: 'News Search settings'
+  requirements:
+    _permission: 'administer News Search settings'

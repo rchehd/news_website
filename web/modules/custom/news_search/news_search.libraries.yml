@@ -1,0 +1,6 @@
+news_search:
+  version: 1.x
+  css:
+    theme:
+      css/news_search.css: {}
+

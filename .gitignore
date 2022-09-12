@@ -1,0 +1,53 @@
+.idea/
+mutagen.yml.lock
+.vscode
+
+#This .gitignore file assume that you have a global .gitignore file configured
+# to ignore for example IDE related files.
+# See docs/01-developer/12-git.md or see https://www.drupal.org/node/1542048.
+
+# Contrib files.
+/web/core
+/web/libraries
+/web/modules/contrib
+/web/profiles/contrib
+/web/themes/contrib
+/web/translations/contrib
+
+# Development config files.
+/web/.eslintignore
+/web/.ht.router.php
+/web/example.gitignore
+
+# Compilation.
+*.css.map
+*.js.map
+
+# Drupal's file directory.
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php
+/web/sites/development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/sites/*/files
+/private_files
+/web/sites/simpletest
+
+/web/themes/custom/*/scss
+/web/themes/custom/*/.sass-cache
+
+# Backups.
+backups/*
+
+# Build.
+build
+
+# Cloned repositories.
+/contrib
+
+# Cypress.
+/scripts/tests/cypress/cypress/screenshots
+/scripts/tests/cypress/cypress/videos
+
+.idea/
+sites/*/files

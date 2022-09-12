@@ -1,0 +1,7 @@
+name: News Search Block
+type: module
+description: Provides News Search block.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+configure: news_search_settings
