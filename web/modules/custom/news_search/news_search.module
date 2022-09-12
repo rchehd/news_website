@@ -19,12 +19,16 @@ function news_search_form_alter(&$form, FormStateInterface $form_state, $form_id
     $theme = \Drupal::config('news_search.settings')->get('theme');
     $form['#attached']['library'][] = 'news_search/news_search';
 
-    $key = ($form_id == 'search_block_form') ? 'actions' : 'basic';
+
 
     if ($form_id == 'search_block_form') {
-      $form['keys']['#prefix'] = '<i class="bi bi-2-circle"></i>';
+//      $form['keys']['#prefix'] = '<div class="search__wrapper">';
+//      $form['keys']['#suffix'] = '<button type="button" class="btn-search">gfhfghfgh</button>';
+
+//      $form['actions']['#attributes']['id'][] = 'search_submit';
       $placeholder_text = \Drupal::config('news_search.settings')->get('placeholder_text');
       $form['keys']['#attributes']['placeholder'] = t('@placeholder', ['@placeholder' => $placeholder_text]);
+      $form['keys']['#attributes']['class'][] = 'input-search';
       $form['actions']['#attributes']['class'][] = 'visually-hidden';
     }
 

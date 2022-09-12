@@ -21,6 +21,9 @@
   %}
   <input{{ attributes.addClass(classes) }} />
 {% else %}
-    <input{{ attributes }} />
+  <div class="search-box">
+      <input{{ attributes }} />
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+  </div>
 {% endif %}
 {{ children }}

@@ -24,6 +24,7 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/fontawesome": "^2.23",
         "drupal/ultimate_cron": "^2.0@alpha"
     },
     "conflict": {

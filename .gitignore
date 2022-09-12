@@ -1,7 +1,7 @@
 .idea/
 mutagen.yml.lock
 .vscode
-
+/.sass-cache
 #This .gitignore file assume that you have a global .gitignore file configured
 # to ignore for example IDE related files.
 # See docs/01-developer/12-git.md or see https://www.drupal.org/node/1542048.
@@ -51,3 +51,4 @@ build
 
 .idea/
 sites/*/files
+/.sass-cache
