@@ -5,6 +5,6 @@ services:
       - '@config.factory'
       - '@current_user'
       - '@entity_type.manager'
-      - '@language.manager'
+      - '@language_manager'
       - '@http_client_factory'
       - '@logger.factory'
