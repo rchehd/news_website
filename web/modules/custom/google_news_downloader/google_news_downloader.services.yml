@@ -1,0 +1,10 @@
+services:
+  google_news_api:
+    class: Drupal\google_news_downloader\GoogleNewsAPI
+    arguments:
+      - '@config.factory'
+      - '@current_user'
+      - '@entity_type.manager'
+      - '@language.manager'
+      - '@http_client_factory'
+      - '@logger.factory'

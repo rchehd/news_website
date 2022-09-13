@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains google_news_downloader.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function google_news_downloader_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the google_news_downloader module.
+    case 'help.page.google_news_downloader':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Google News Downloader') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+

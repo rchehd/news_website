@@ -1,0 +1,6 @@
+google_news_downloader.settings:
+  title: 'Google News Downloader'
+  description: 'Parameters of Google News Downloader.'
+  route_name: google_news_downloader.settings
+  parent: system.admin_config
+  weight: -1
