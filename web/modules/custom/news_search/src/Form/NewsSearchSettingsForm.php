@@ -53,6 +53,8 @@ class NewsSearchSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('news_search.settings')->set('placeholder_text', $form_state->getValue('placeholder_text'));
     $config->save();
+    // Clear cache.
+    drupal_flush_all_caches();
     parent::submitForm($form, $form_state);
   }
 

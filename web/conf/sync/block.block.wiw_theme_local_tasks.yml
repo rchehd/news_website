@@ -1,0 +1,22 @@
+uuid: e0270e4d-cffa-4894-a87f-1c812f9afec3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: 90pGJxxLTgerJwLq1ZimT8HJeE8dpdlqra3znYPDqoc
+id: wiw_theme_local_tasks
+theme: wiw_theme
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 3baa12b2-4338-4045-818d-1944e827808f
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: A-R68PwqF9vuX5wx2Cv28btT4Leor9O6544I9ahWbPQ
+id: wiw_theme_help
+theme: wiw_theme
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,6 +1,6 @@
 uuid: a2fed029-2135-4bb3-86d7-fbb97af75e74
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.new.field_new_image
     - node.type.new
   module:
+    - image
     - text
     - user
 id: node.new.teaser
@@ -21,13 +22,23 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-    weight: 101
+    weight: 2
+    region: content
+  field_new_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
-  field_new_image: true
   langcode: true

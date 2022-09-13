@@ -1,0 +1,20 @@
+uuid: c2e1412e-3321-4f09-a080-3e36195d2383
+langcode: en
+status: true
+dependencies:
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: i594MW0F-k85D6KxxqMMI15bctiIbfHUtRBOGgqnVko
+id: wiw_theme_local_actions
+theme: wiw_theme
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: d1e1f80f-3eb6-4835-98ff-364a5051ae40
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: vqD2MByRfxQzndVja1BjyQa5uB3I4KDJWTjf3MWTsO8
+id: wiw_theme_breadcrumbs
+theme: wiw_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

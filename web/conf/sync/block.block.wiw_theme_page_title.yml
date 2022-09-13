@@ -1,0 +1,20 @@
+uuid: 7f1ba59b-52d2-4e1a-b227-b056399b3281
+langcode: en
+status: true
+dependencies:
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: DSFgOqnm90c50kIOwDIgt0Mu7O72HakTrcUAZqgjZLU
+id: wiw_theme_page_title
+theme: wiw_theme
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

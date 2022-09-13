@@ -1,0 +1,27 @@
+uuid: d42080d0-8c29-4790-a991-a944d004cb81
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: 7Z93gRM9QDuzV4gDc6TUaHcNLyKQi_9k2QQgJ8lmMlU
+id: wiw_theme_account_menu
+theme: wiw_theme
+region: nav_additional
+weight: -6
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

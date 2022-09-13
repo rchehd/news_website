@@ -10177,7 +10177,7 @@ code {
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px;
   border-radius: 4px;
   background-color: #18272F;
   bottom: 0;

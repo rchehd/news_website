@@ -1,0 +1,22 @@
+uuid: da5c2425-9b04-4b1d-b6f3-718dc0791aa8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: 7s-Xy_gZTl7sGIJQnlNlc17No0qQVsA5z9HWvseA8jo
+id: wiw_theme_powered_by_drupal
+theme: wiw_theme
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,27 @@
+uuid: 12f889d7-6ff0-46b0-81d9-fef375ff4b20
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - wiw_theme
+_core:
+  default_config_hash: D5TlDu05zxPUawAzD6RPPLMQK8p0_s4Ex78sQKm9JJQ
+id: wiw_theme_main_navigation
+theme: wiw_theme
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }
