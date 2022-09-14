@@ -1,3 +1,21 @@
 google_news_api_key: ''
-top_head_line_frequency: 15
-everything_frequency: 60
+top_head_settings:
+  frequency: 15
+  countries: ''
+  categories: ''
+  q_keys: ''
+  sources: ''
+  page_size: 100
+  page: 1
+everything_settings:
+  frequency: 60
+  q_keys: ''
+  searchIn: ''
+  domains: ''
+  exclude_domains: ''
+  languages: ''
+  sort_by: popularity
+  page_size: 100
+  page: 1
+
+

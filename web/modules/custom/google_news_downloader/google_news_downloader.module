@@ -23,66 +23,70 @@ function google_news_downloader_help($route_name, RouteMatchInterface $route_mat
   }
 }
 
-/**
- * Implements hook_cron().
- */
-function google_news_downloader_cron() {
-  $configs = \Drupal::service('config.factor')->get('google_news_downloader.settings');
-  $tempstore = \Drupal::service('tempstore.private');
-  $current_time =  \Drupal::time()->getCurrentTime();
-
-  $frequency_for_top_headlines = $configs->get('top_head_line_frequency');
-  $frequency_for_everything = $configs->get('everything_frequency');
-
-  $last_time_updated_tp_queue = $tempstore->get('top_headline_finished') ?? 0;
-  $last_time_updated_ev_queue = $tempstore->get('everything_finished') ?? 0;
-  $condition_1 = ($current_time - $last_time_updated_tp_queue) >= $frequency_for_top_headlines;
-  $condition_2 = ($current_time - $last_time_updated_ev_queue) >= $frequency_for_everything;
-
-  if ($condition_1) {
-    $top_headlines_queue = \Drupal::queue('google_top_headlines_downloader');
-    $languages = \Drupal::service('language_manager')->getLanguages();
-    $categories = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadByProperties(['name' => 'News category']);
-    $categories = reset($categories);
-    foreach ($languages as $language) {
-      foreach ($categories as $category) {
-        $data = [
-          'country' => $language->getId(),
-          'category' => $category->getName(),
-          'q' => null,
-          'sources' => null,
-          'page_size'=> null,
-          'page' => null,
-         ];
-        $top_headlines_queue->createItem($data);
-      }
-    }
-
-  }
-
-  if ($condition_1) {
-    $everything_queue = \Drupal::queue('google_everything_downloader');
-    $languages = \Drupal::service('language_manager')->getLanguages();
-    $categories = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadByProperties(['name' => 'News category']);
-    $categories = reset($categories);
-    foreach ($languages as $language) {
-      foreach ($categories as $category) {
-        $data = [
-          'q' => $category->getName(),
-          'searchIn' => null,
-          'sources' => null,
-          'domains' => null,
-          'exclude_domains' => null,
-          'from' => $current_time - ($frequency_for_everything * 60),
-          'to' => $current_time,
-          'language' => $language->getId(),
-          'sort_by' => null,
-          'page_size' => null,
-          'page' => null,
-        ];
-        $everything_queue->createItem($data);
-      }
-    }
-  }
-
-}
+///**
+// * Implements hook_cron().
+// */
+//function google_news_downloader_cron() {
+//  $configs = \Drupal::service('config.factor')->get('google_news_downloader.settings');
+//  $tempstore = \Drupal::service('tempstore.private');
+//  $current_time =  \Drupal::time()->getCurrentTime();
+//
+//  $frequency_for_top_headlines = $configs->get('top_head_line_frequency');
+//  $frequency_for_everything = $configs->get('everything_frequency');
+//
+//  $last_time_updated_tp_queue = $tempstore->get('top_headline_finished') ?? 0;
+//  $last_time_updated_ev_queue = $tempstore->get('everything_finished') ?? 0;
+//  $condition_1 = ($current_time - $last_time_updated_tp_queue) >= $frequency_for_top_headlines;
+//  $condition_2 = ($current_time - $last_time_updated_ev_queue) >= $frequency_for_everything;
+//
+//  if ($condition_1) {
+//    $top_headlines_queue = \Drupal::queue('google_top_headlines_downloader');
+//    $languages = \Drupal::service('language_manager')->getLanguages();
+//    $categories = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->loadByProperties(['name' => 'News category']);
+//    $categories = reset($categories);
+//    foreach ($languages as $language) {
+//      foreach ($categories as $category) {
+//        $data = [
+//          'country' => $language->getId(),
+//          'category' => $category->getName(),
+//          'q' => null,
+//          'sources' => null,
+//          'page_size'=> null,
+//          'page' => null,
+//         ];
+//        $top_headlines_queue->createItem($data);
+//      }
+//    }
+//
+//  }
+//
+//  if ($condition_2) {
+//    $everything_queue = \Drupal::queue('google_everything_downloader');
+//    $languages = $configs->get('everything_settings.languages');
+//    $categories = $configs->get('everything_settings.categories');
+//    $q_keys = $configs->get('everything_settings.q_keys');
+//    $searchIn = $configs->get('everything_settings.searchIn');
+//    $domains = $configs->get('everything_settings.domains');
+//    $searchIn = $configs->get('everything_settings.searchIn');
+//    $searchIn = $configs->get('everything_settings.searchIn');
+//    foreach ($languages as $language) {
+//      foreach ($categories as $category) {
+//        $data = [
+//          'q' => $category->getName(),
+//          'searchIn' => null,
+//          'sources' => null,
+//          'domains' => null,
+//          'exclude_domains' => null,
+//          'from' => $current_time - ($frequency_for_everything * 60),
+//          'to' => $current_time,
+//          'language' => $language->getId(),
+//          'sort_by' => null,
+//          'page_size' => null,
+//          'page' => null,
+//        ];
+//        $everything_queue->createItem($data);
+//      }
+//    }
+//  }
+//
+//}
