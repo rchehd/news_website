@@ -40,6 +40,9 @@ google_news_downloader.settings:
         q_keys:
           type: string
           label: 'Key phrases found in the news.'
+        sources:
+          type: string
+          label: 'Sources names of news.'
         searchIn:
           type: string
           label: 'The fields to restrict your key phrase search to.'

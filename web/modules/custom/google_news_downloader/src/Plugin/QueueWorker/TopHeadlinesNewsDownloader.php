@@ -83,23 +83,21 @@ class TopHeadlinesNewsDownloader extends QueueWorkerBase implements ContainerFac
       $data['page']
     );
     foreach ($top_headlines['articles'] as $article) {
-      $file = system_retrieve_file($article['urlToImage'], 'public://', TRUE);
-      $term = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties(['name' => 'Top headlines']);
-      $term = reset($term);
       $google_news = $this->entityTypeManager->getStorage('node')->create([
         'type' => 'google_news',
+        'language' => $data['country'],
         'title' => $article['title'],
-        'field_banner' => [
-          'target_id' => $file->id(),
-          'alt'       => $article['title'],
-          'title'     => $article['title'],
+        'field_remote_image' => [
+          'uri' => $article['urlToImage'],
+          'alt' => $article['title'],
+          'title' => $article['title'],
         ],
         'body' => $article['content'],
         'field_description' => $article['description'],
         'field_external_url' => $article['url'],
         'field_published_at' => strtotime($article['publishedAt']),
         'field_source_name' => $article['source']['name'],
-        'field_type' => ['target_id' => $term->id()],
+        'field_type' => ['target_id' => 7],
       ]);
       $google_news->save();
     }

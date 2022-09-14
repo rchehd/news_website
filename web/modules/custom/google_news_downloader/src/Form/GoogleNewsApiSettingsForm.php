@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\google_news_downloader\Form;
 
+use DOMDocument;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -24,6 +25,9 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
+
+    $doc = new DOMDocument();
+    $html = $doc->loadHTMLFile("https://ua.korrespondent.net/lifestyle/4515965-uchasnyk-kholostiachky-pokazav-yak-osvidchyvsia-svoiemu-kokhanomu");
     $config = $this->config('google_news_downloader.settings');
 
     $form['google_news_api_key'] = [
@@ -83,7 +87,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Sources names of articles'),
       '#default_value' => $top_head_config['sources'],
-      '#description' => $this->t("Add sources across coma (Example: BBC, The Washington Post). Note: you can't mix this param with the country or category params."),
+      '#description' => $this->t('Add <a href="https://newsapi.org/sources" target="_blank">sources id</a> across coma. Note: you can not mix this param with the country or category params.'),
     ];
 
     $form['top_head_settings']['details'] = array(
@@ -132,6 +136,14 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#default_value' => $everything_config['q_keys'],
       '#description' => $this->t('Add phrases across coma (Example: fish and meet, bad guys).'),
     ];
+
+    $form['everything_settings']['everything_settings_sources'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Sources names of articles'),
+      '#default_value' => $everything_config['sources'],
+      '#description' => $this->t('Add <a href="https://newsapi.org/sources" target="_blank">sources id</a> across coma. Note: you can not mix this param with the country or category params.'),
+    ];
+
 
     $form['everything_settings']['everything_settings_searchIn'] = [
       '#type' => 'textarea',
@@ -220,6 +232,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       'frequency'=> $form_state->getValue('everything_settings_frequency'),
       'q_keys'=> $form_state->getValue('everything_settings_q_keys'),
       'searchIn'=> $form_state->getValue('everything_settings_searchIn'),
+      'sources'=> $form_state->getValue('everything_settings_sources'),
       'domains'=> $form_state->getValue('everything_settings_domains'),
       'exclude_domains'=> $form_state->getValue('everything_settings_exclude_domains'),
       'languages'=> $form_state->getValue('everything_settings_languages'),
@@ -243,7 +256,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
     if ($form_state->getValue('top_head_settings_categories') !== "" & preg_match('/^\w+(?:, \w+)*$/', $form_state->getValue('top_head_settings_categories')) != 1) {
       $form_state->setError($form['top_head_settings']['top_head_settings_categories'], $this->t('Please, add category across coma (Example: sport, politic).'));
     }
-    if ($form_state->getValue('top_head_settings_q_keys') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('top_head_settings_q_keys')) != 1) {
+    if ($form_state->getValue('top_head_settings_q_keys') !== "" & preg_match('/^[A-Za-zа-щА-ЩЬьЮюЯяЇїІіЄєҐґ\-" ]+(?:, [A-Za-zа-щА-ЩЬьЮюЯяЇїІіЄєҐґ\-" ]+)*$/u', $form_state->getValue('top_head_settings_q_keys')) != 1) {
       $form_state->setError($form['top_head_settings']['top_head_settings_q_keys'], $this->t('Please, add phrases across coma and space, without numbers (Example: fish and meet, bad guys).'));
     }
     if (($form_state->getValue('top_head_settings_countries') != "" & $form_state->getValue('top_head_settings_sources') !== "" ) ||
@@ -251,11 +264,14 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
         ($form_state->getValue('top_head_settings_sources') !== "" & preg_match('/^[A-Za-z0-9 ]+(?:, [A-Za-z0-9 ]+)*$/', $form_state->getValue('top_head_settings_sources')) != 1)) {
       $form_state->setError($form['top_head_settings']['top_head_settings_sources'], $this->t("Please, add sources across coma (Example: BBC, The Washington Post). Note: you can't mix this param with the country or category params."));
     }
-    if ($form_state->getValue('everything_settings_q_keys') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('everything_settings_q_keys')) != 1) {
+    if ($form_state->getValue('everything_settings_q_keys') !== "" & preg_match('/^[A-Za-zа-щА-ЩЬьЮюЯяЇїІіЄєҐґ\-" ]+(?:, [A-Za-zа-щА-ЩЬьЮюЯяЇїІіЄєҐґ\-" ]+)*$/u', $form_state->getValue('everything_settings_q_keys')) != 1) {
       $form_state->setError($form['everything_settings']['everything_settings_q_keys'], $this->t('Please, add phrases across coma (Example: fish and meet, bad guys).'));
     }
     if ($form_state->getValue('everything_settings_searchIn') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('everything_settings_searchIn')) != 1) {
       $form_state->setError($form['everything_settings']['everything_settings_searchIn'], $this->t('Please, add fields across coma (Example: title, content, description)'));
+    }
+    if ($form_state->getValue('everything_settings_sources') !== "" & preg_match('/^[A-Za-z0-9 ]+(?:, [A-Za-z0-9 ]+)*$/', $form_state->getValue('everything_settings_sources')) != 1) {
+      $form_state->setError($form['everything_settings']['everything_settings_sources'], $this->t("Please, add sources across coma (Example: BBC, The Washington Post). Note: you can't mix this param with the country or category params."));
     }
     if ($form_state->getValue('everything_settings_domains') !== "" & preg_match('/^[A-Za-z0-9. ]+(?:, [A-Za-z0-9. ]+)*$/', $form_state->getValue('everything_settings_domains')) != 1) {
       $form_state->setError($form['everything_settings']['everything_settings_domains'], $this->t('Please, add domain across coma (Example: bbc.co.uk, techcrunch.com, engadget.com)'));
