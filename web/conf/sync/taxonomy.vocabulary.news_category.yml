@@ -1,0 +1,8 @@
+uuid: 18f9eab8-7ae0-4740-92a8-f09c49ac5105
+langcode: en
+status: true
+dependencies: {  }
+name: 'News category'
+vid: news_category
+description: 'Kind of news articles from Google News'
+weight: 0

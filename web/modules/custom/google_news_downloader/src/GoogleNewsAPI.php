@@ -105,22 +105,22 @@ class GoogleNewsAPI {
    * @return mixed
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function getTopHeadLines(string $country='en', $category=null, $q=null, $sources=null, $page_size=null, $page=null): mixed {
+  public function getTopHeadLines(string $country='en', $category=null, $q=null, $sources=null, $page_size=null, $page=null) {
     // Add default country.
-    $uri = $this::HEADLINE_URL . 'country=' . $country . '&';
+    $uri = $this::HEADLINE_URL . 'country=' . trim($country) . '&';
 
     // Add category if existed.
-    if (!is_null($category)) {
-      $uri = $uri . 'category=' . $category . '&';
+    if (!is_null($category) && $category != "") {
+      $uri = $uri . 'category=' . trim($category) . '&';
     }
 
     // Add category if existed.
-    if (!is_null($q)) {
-      $uri = $uri . 'category=' . $q . '&';
+    if (!is_null($q) && $q != "") {
+      $uri = $uri . 'q=' . $q . '&';
     }
 
     // Add sources if existed and category not existed.
-    if (!is_null($sources) && is_null($category)) {
+    if (!is_null($sources) && is_null($category) && $sources != "") {
       $uri = $uri . 'sources=' . $sources . '&';
     }
 
@@ -136,7 +136,7 @@ class GoogleNewsAPI {
 
     // Add api key from configs.
     if (!is_null($this->apiKey)) {
-      $uri = $uri . 'apiKey=' . $this->apiKey . '&';
+      $uri = $uri . 'apiKey=' . $this->apiKey;
     }
     else {
       $this->logger->error('Google News API key is empty');
@@ -148,7 +148,8 @@ class GoogleNewsAPI {
       ->request('GET', $uri);
 
     if ($response->getStatusCode() == 200) {
-      return json_decode($response->getBody()->getContents(), TRUE);
+      $result = json_decode($response->getBody()->getContents(), TRUE);
+      return $result;
     }
     else {
       $response_body = json_encode($response->getBody());
@@ -200,47 +201,52 @@ class GoogleNewsAPI {
    * @return array|mixed
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function getEverything($q, $searchIn=null, $sources=null, $domains=null, $exclude_domains=null, $from=null, $to=null, $language='en', $sort_by=null, $page_size=null, $page=null): mixed {
+  public function getEverything($q, $searchIn=null, $sources=null, $domains=null, $exclude_domains=null, $from=null, $to=null, $language='en', $sort_by=null, $page_size=null, $page=null) {
     // Add default country.
     $uri = $this::EVERYTHING_URL . 'q=' . $q . '&';
 
+    // Add category if existed.
+    if (!is_null($q) && $q != "") {
+      $uri = $uri . 'q=' . $q . '&';
+    }
+
     // Add searchIn if existed.
-    if (!is_null($searchIn)) {
+    if (!is_null($searchIn) && $searchIn != "") {
       $uri = $uri . 'searchIn=' . $searchIn . '&';
     }
 
     // Add searchIn if existed.
-    if (!is_null($sources)) {
+    if (!is_null($sources) && $sources != "") {
       $uri = $uri . 'sources=' . $sources . '&';
     }
 
     // Add domains if existed.
-    if (!is_null($domains)) {
+    if (!is_null($domains) && $domains != "") {
       $uri = $uri . 'domains=' . $domains . '&';
     }
 
     // Add excludeDomains if existed.
-    if (!is_null($exclude_domains)) {
+    if (!is_null($exclude_domains) && $exclude_domains != "") {
       $uri = $uri . 'excludeDomains=' . $exclude_domains . '&';
     }
 
     // Add from if existed.
-    if (!is_null($from)) {
+    if (!is_null($from) && $from != "") {
       $uri = $uri . 'from=' . $from . '&';
     }
 
     // Add to if existed.
-    if (!is_null($to)) {
+    if (!is_null($to) && $to != "") {
       $uri = $uri . 'to=' . $to . '&';
     }
 
     // Add language if existed.
-    if (!is_null($language)) {
-      $uri = $uri . 'language=' . $language . '&';
+    if (!is_null($language) && $language != "") {
+      $uri = $uri . 'language=' . trim($language) . '&';
     }
 
     // Add sortBy if existed.
-    if (!is_null($sort_by)) {
+    if (!is_null($sort_by) && $sort_by != "") {
       $uri = $uri . 'sortBy=' . $sort_by . '&';
     }
 
@@ -256,7 +262,7 @@ class GoogleNewsAPI {
 
     // Add api key from configs.
     if (!is_null($this->apiKey)) {
-      $uri = $uri . 'apiKey=' . $this->apiKey . '&';
+      $uri = $uri . 'apiKey=' . $this->apiKey;
     }
     else {
       $this->logger->error('Google News API key is empty');

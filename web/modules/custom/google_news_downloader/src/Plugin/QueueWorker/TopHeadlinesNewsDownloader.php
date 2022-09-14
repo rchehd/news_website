@@ -12,11 +12,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Google top headlines news download worker.
  *
- * @QueueWorker {
+ * @QueueWorker(
  *   id = "google_top_headlines_downloader",
- *   title = @Translation('Google top headlines news downloader'),
+ *   title = @Translation("Google top headlines news downloader"),
  *   cron = {"time" = 60 }
- * }
+ * )
  */
 class TopHeadlinesNewsDownloader extends QueueWorkerBase implements ContainerFactoryPluginInterface {
 

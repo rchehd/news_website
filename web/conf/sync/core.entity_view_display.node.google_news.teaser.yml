@@ -1,0 +1,53 @@
+uuid: ec4388fd-85c3-4654-a60c-97efd9c0f159
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.google_news.body
+    - field.field.node.google_news.field_author
+    - field.field.node.google_news.field_banner
+    - field.field.node.google_news.field_description
+    - field.field.node.google_news.field_external_url
+    - field.field.node.google_news.field_published_at
+    - field.field.node.google_news.field_remote_image
+    - field.field.node.google_news.field_source_name
+    - field.field.node.google_news.field_type
+    - node.type.google_news
+  module:
+    - remote_image
+    - text
+    - user
+id: node.google_news.teaser
+targetEntityType: node
+bundle: google_news
+mode: teaser
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_remote_image:
+    type: remote_image
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_author: true
+  field_banner: true
+  field_external_url: true
+  field_published_at: true
+  field_source_name: true
+  field_type: true
+  langcode: true

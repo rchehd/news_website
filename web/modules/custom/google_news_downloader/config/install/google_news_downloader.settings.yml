@@ -1,8 +1,8 @@
 google_news_api_key: ''
 top_head_settings:
   frequency: 15
-  countries: ''
-  categories: ''
+  countries: 'en'
+  categories: 'business, entertainment, general, health, science, sports, technology'
   q_keys: ''
   sources: ''
   page_size: 100
@@ -13,7 +13,7 @@ everything_settings:
   searchIn: ''
   domains: ''
   exclude_domains: ''
-  languages: ''
+  languages: 'en'
   sort_by: popularity
   page_size: 100
   page: 1

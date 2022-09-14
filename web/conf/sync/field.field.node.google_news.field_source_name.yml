@@ -1,0 +1,19 @@
+uuid: ebdfe68e-5cac-44ea-8c04-64f46e364698
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_name
+    - node.type.google_news
+id: node.google_news.field_source_name
+field_name: field_source_name
+entity_type: node
+bundle: google_news
+label: 'Source name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

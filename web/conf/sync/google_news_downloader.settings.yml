@@ -1,0 +1,21 @@
+google_news_api_key: bc29b151737c421399a4400e6903eb5d
+top_head_settings:
+  frequency: '15'
+  countries: 'ua, us, en'
+  categories: 'business, entertainment, general, health, science, sports, technology'
+  q_keys: ''
+  sources: ''
+  page_size: '100'
+  page: '1'
+everything_settings:
+  frequency: '60'
+  q_keys: ''
+  searchIn: ''
+  domains: ''
+  exclude_domains: ''
+  languages: 'en, ua'
+  sort_by: popularity
+  page_size: '100'
+  page: '1'
+_core:
+  default_config_hash: sUQsnMzvIA5ZGMOfkaCZjOeZNw7jkhVq-PNKM41cDNw

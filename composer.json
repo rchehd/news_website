@@ -26,6 +26,8 @@
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/fontawesome": "^2.23",
+        "drupal/image_url_formatter": "^1.0",
+        "drupal/remote_image": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "jcobhams/newsapi": "^1.0"
     },

@@ -1,0 +1,19 @@
+uuid: cfea4a06-cf22-4d92-b028-280e28209543
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - remote_image
+id: node.field_remote_image
+field_name: field_remote_image
+entity_type: node
+type: remote_image
+settings: {  }
+module: remote_image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

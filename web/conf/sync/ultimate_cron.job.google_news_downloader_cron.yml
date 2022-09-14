@@ -1,0 +1,17 @@
+uuid: ce3bfd2e-dc3c-4fa6-bd26-ef91aa0a9499
+langcode: en
+status: true
+dependencies:
+  module:
+    - google_news_downloader
+title: 'Default cron handler'
+id: google_news_downloader_cron
+weight: 0
+module: google_news_downloader
+callback: google_news_downloader_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

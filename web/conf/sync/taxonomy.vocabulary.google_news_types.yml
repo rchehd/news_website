@@ -1,0 +1,8 @@
+uuid: 46d56f41-9042-431f-ba96-41d4c2fccc3a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Google news types'
+vid: google_news_types
+description: ''
+weight: 0

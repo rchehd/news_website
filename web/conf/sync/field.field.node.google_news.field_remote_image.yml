@@ -1,0 +1,24 @@
+uuid: df61beeb-1ea6-4df5-be76-919896932dcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_remote_image
+    - node.type.google_news
+  module:
+    - remote_image
+id: node.google_news.field_remote_image
+field_name: field_remote_image
+entity_type: node
+bundle: google_news
+label: 'Remote image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  alt_attribute: 1
+  title_attribute: 1
+field_type: remote_image
