@@ -60,7 +60,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
 
     $form['top_head_settings']['top_head_settings_countries'] = [
       '#type' => 'textarea',
-      '#title' => $this->t('Available counties'),
+      '#title' => $this->t('Available countries'),
       '#default_value' => $top_head_config['countries'],
       '#description' => $this->t('Add the 2-letter ISO 3166-1 code of the country across coma (Example: ua, us).'),
     ];
@@ -83,7 +83,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Sources names of articles'),
       '#default_value' => $top_head_config['sources'],
-      '#description' => $this->t('Add sources across coma (Example: BBC, The Washington Post).'),
+      '#description' => $this->t("Add sources across coma (Example: BBC, The Washington Post). Note: you can't mix this param with the country or category params."),
     ];
 
     $form['top_head_settings']['details'] = array(
@@ -238,31 +238,33 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     if ($form_state->getValue('top_head_settings_countries') !== "" & preg_match('/^[a-z]{2}(?:, [a-z]{2})*$/', $form_state->getValue('top_head_settings_countries')) != 1) {
-      $form_state->setErrorByName('Countries', $this->t('Please, add the 2-letter ISO 3166-1 code of the country across coma and space (Example: ua, us)'));
+      $form_state->setError($form['top_head_settings']['top_head_settings_countries'], $this->t('Please, add the 2-letter ISO 3166-1 code of the country across coma and space (Example: ua, us)'));
     }
     if ($form_state->getValue('top_head_settings_categories') !== "" & preg_match('/^\w+(?:, \w+)*$/', $form_state->getValue('top_head_settings_categories')) != 1) {
-      $form_state->setErrorByName('Categories', $this->t('Please, add category across coma (Example: sport, politic).'));
+      $form_state->setError($form['top_head_settings']['top_head_settings_categories'], $this->t('Please, add category across coma (Example: sport, politic).'));
     }
     if ($form_state->getValue('top_head_settings_q_keys') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('top_head_settings_q_keys')) != 1) {
-      $form_state->setErrorByName('Key phrases', $this->t('Please, add phrases across coma and space, without numbers (Example: fish and meet, bad guys).'));
+      $form_state->setError($form['top_head_settings']['top_head_settings_q_keys'], $this->t('Please, add phrases across coma and space, without numbers (Example: fish and meet, bad guys).'));
     }
-    if ($form_state->getValue('top_head_settings_sources') !== "" & preg_match('/^[A-Za-z0-9 ]+(?:, [A-Za-z0-9 ]+)*$/', $form_state->getValue('top_head_settings_sources')) != 1) {
-      $form_state->setErrorByName('Sources', $this->t('Please, add sources across coma (Example: BBC, The Washington Post).'));
+    if (($form_state->getValue('top_head_settings_countries') != "" & $form_state->getValue('top_head_settings_sources') !== "" ) ||
+        ($form_state->getValue('top_head_settings_categories') != ""  & $form_state->getValue('top_head_settings_sources') !== "" ) ||
+        ($form_state->getValue('top_head_settings_sources') !== "" & preg_match('/^[A-Za-z0-9 ]+(?:, [A-Za-z0-9 ]+)*$/', $form_state->getValue('top_head_settings_sources')) != 1)) {
+      $form_state->setError($form['top_head_settings']['top_head_settings_sources'], $this->t("Please, add sources across coma (Example: BBC, The Washington Post). Note: you can't mix this param with the country or category params."));
     }
     if ($form_state->getValue('everything_settings_q_keys') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('everything_settings_q_keys')) != 1) {
-      $form_state->setErrorByName('Key phrases', $this->t('Please, add phrases across coma (Example: fish and meet, bad guys).'));
+      $form_state->setError($form['everything_settings']['everything_settings_q_keys'], $this->t('Please, add phrases across coma (Example: fish and meet, bad guys).'));
     }
     if ($form_state->getValue('everything_settings_searchIn') !== "" & preg_match('/^[A-Za-z ]+(?:, [A-Za-z ]+)*$/', $form_state->getValue('everything_settings_searchIn')) != 1) {
-      $form_state->setErrorByName('Search in', $this->t('Please, add fields across coma (Example: title, content, description)'));
+      $form_state->setError($form['everything_settings']['everything_settings_searchIn'], $this->t('Please, add fields across coma (Example: title, content, description)'));
     }
     if ($form_state->getValue('everything_settings_domains') !== "" & preg_match('/^[A-Za-z0-9. ]+(?:, [A-Za-z0-9. ]+)*$/', $form_state->getValue('everything_settings_domains')) != 1) {
-      $form_state->setErrorByName('Domains', $this->t('Please, add domain across coma (Example: bbc.co.uk, techcrunch.com, engadget.com)'));
+      $form_state->setError($form['everything_settings']['everything_settings_domains'], $this->t('Please, add domain across coma (Example: bbc.co.uk, techcrunch.com, engadget.com)'));
     }
     if ($form_state->getValue('everything_settings_exclude_domains') !== "" & preg_match('/^[A-Za-z0-9. ]+(?:, [A-Za-z0-9. ]+)*$/', $form_state->getValue('everything_settings_exclude_domains')) != 1) {
-      $form_state->setErrorByName('Exclude domains', $this->t('Please, add domain across coma (Example: bbc.co.uk, techcrunch.com, engadget.com)'));
+      $form_state->setError($form['everything_settings']['everything_settings_exclude_domains'], $this->t('Please, add domain across coma (Example: bbc.co.uk, techcrunch.com, engadget.com)'));
     }
     if ($form_state->getValue('everything_settings_languages') !== "" & preg_match('/^[a-z]{2}(?:, [a-z]{2})*$/', $form_state->getValue('everything_settings_languages')) != 1) {
-      $form_state->setErrorByName('Languages', $this->t('Please, add the 2-letter ISO-639-1 code of the language you want to get headlines for across coma. (Example: en, es, ua).'));
+      $form_state->setError($form['everything_settings']['everything_settings_languages'],$this->t('Please, add the 2-letter ISO-639-1 code of the language you want to get headlines for across coma. (Example: en, es, ua).'));
     }
   }
 
