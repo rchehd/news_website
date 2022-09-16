@@ -47,13 +47,13 @@ function google_news_downloader_cron(): void {
     $condition_1 = ($current_time - $last_time_updated_tp_queue) >= $top_headlines_configs['frequency'];
     $condition_2 = ($current_time - $last_time_updated_ev_queue) >= $everything_configs['frequency'];
 
-//    if ($condition_1) {
-//      createQueueItemForTopHeadlines($top_headlines_configs, $current_time);
-//    }
-
-    if ($condition_2) {
-      createQueueItemForEverything($everything_configs, $current_time - ((int) $everything_configs['frequency'] * 60), $current_time);
+    if ($condition_1) {
+      createQueueItemForTopHeadlines($top_headlines_configs, $current_time);
     }
+
+//    if ($condition_2) {
+//      createQueueItemForEverything($everything_configs, $current_time - ((int) $everything_configs['frequency'] * 60), $current_time);
+//    }
   }
 }
 

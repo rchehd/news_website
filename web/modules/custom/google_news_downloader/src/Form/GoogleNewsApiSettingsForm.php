@@ -25,9 +25,6 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
-
-    $doc = new DOMDocument();
-    $html = $doc->loadHTMLFile("https://ua.korrespondent.net/lifestyle/4515965-uchasnyk-kholostiachky-pokazav-yak-osvidchyvsia-svoiemu-kokhanomu");
     $config = $this->config('google_news_downloader.settings');
 
     $form['google_news_api_key'] = [

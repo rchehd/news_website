@@ -98,12 +98,12 @@ class EverythingNewsDownloader extends QueueWorkerBase implements ContainerFacto
           'alt' => $article['title'],
           'title' => $article['title'],
         ],
-        'body' => $article['content'],
+        'body' => t('More here @url', ['@url' =>$article['url']]),
         'field_description' => $article['description'],
         'field_external_url' => $article['url'],
         'field_published_at' => strtotime($article['publishedAt']),
         'field_source_name' => $article['source']['name'],
-        'field_type' => ['target_id' => 8],
+        'field_type' => ['target_id' => 7],
       ]);
       $google_news->save();
     }
