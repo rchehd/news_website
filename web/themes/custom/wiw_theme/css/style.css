@@ -10193,4 +10193,7 @@ code {
 a:hover {
   color: black !important; }
 
+.navbar-brand img {
+  height: 36px; }
+
 /*# sourceMappingURL=style.css.map */

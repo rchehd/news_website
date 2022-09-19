@@ -1,0 +1,17 @@
+google_news_api:
+  title: 'Google News API'
+  description: 'Parameters of Google News API.'
+  parent: system.admin_structure
+  weight: -1
+
+google_news_api.settings:
+  title: 'Settings'
+  description: 'Parameters of Google News API.'
+  route_name: google_news_api.settings
+  parent: google_news_api
+
+google_news_api.prepare:
+  title: 'Get news'
+  description: 'From to get data from Google News.'
+  route_name: google_news_api.news_prepare_form
+  parent: google_news_api
