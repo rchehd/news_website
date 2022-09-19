@@ -3,6 +3,7 @@ _core:
 module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  ajax_example: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -19,11 +20,13 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  examples: 0
   field: 0
   field_ui: 0
   file: 0
   filter: 0
   fontawesome: 0
+  google_news_api: 0
   help: 0
   history: 0
   image: 0

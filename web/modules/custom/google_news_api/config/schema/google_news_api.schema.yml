@@ -1,4 +1,4 @@
-google_news_downloader.settings:
+google_news_api.settings:
   type: mapping
   label: 'Google News API settings'
   mapping:

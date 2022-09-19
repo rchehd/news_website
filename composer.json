@@ -25,6 +25,7 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/examples": "^3.0",
         "drupal/fontawesome": "^2.23",
         "drupal/image_url_formatter": "^1.0",
         "drupal/module_filter": "^3.2",

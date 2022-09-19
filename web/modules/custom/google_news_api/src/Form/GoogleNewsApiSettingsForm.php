@@ -11,7 +11,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   protected function getEditableConfigNames(): array {
-    return ['google_news_downloader.settings'];
+    return ['google_news_api.settings'];
   }
 
   /**
@@ -120,7 +120,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Get general configs.
-    $config = $this->config('google_news_downloader.settings');
+    $config = $this->config('google_news_api.settings');
 
     // Setting Google API key config.
     $config->set('google_news_api_key', $form_state->getValue('google_news_api_key'));

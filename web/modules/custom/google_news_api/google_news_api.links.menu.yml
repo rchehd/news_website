@@ -1,6 +1,7 @@
 google_news_api:
   title: 'Google News API'
   description: 'Parameters of Google News API.'
+  route_name: google_news_api.settings
   parent: system.admin_structure
   weight: -1
 
