@@ -4,7 +4,10 @@ namespace Drupal\google_news_api\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\TempStore\PrivateTempStoreFactory;
+use Drupal\Core\Url;
+use Drupal\google_news_api\GoogleNewsAPI;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class GoogleNewsPrepareForm extends FormBase {
@@ -16,8 +19,14 @@ class GoogleNewsPrepareForm extends FormBase {
    */
   private PrivateTempStoreFactory $tempratory;
 
-  public function __construct(PrivateTempStoreFactory $privateTempStoreFactory) {
+  /**
+   * @var GoogleNewsAPI
+   */
+  private GoogleNewsAPI $googleNewsAPI;
+
+  public function __construct(PrivateTempStoreFactory $privateTempStoreFactory, GoogleNewsAPI $googleNewsAPI) {
     $this->tempratory = $privateTempStoreFactory;
+    $this->googleNewsAPI = $googleNewsAPI;
   }
 
   /**
@@ -26,6 +35,7 @@ class GoogleNewsPrepareForm extends FormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('tempstore.private'),
+      $container->get('google_news_api')
     );
   }
 
@@ -73,17 +83,19 @@ class GoogleNewsPrepareForm extends FormBase {
 
       if ($this->getOptions($top_head_config['countries'])) {
         $form['news_form']['countries'] = [
-          '#type' => 'checkboxes',
+          '#type' => 'radios',
           '#title' => $this->t('Please, choose country'),
           '#options' => $this->getOptions($top_head_config['countries']),
+          '#required' => TRUE,
         ];
       }
 
       if ($this->getOptions($top_head_config['categories'])) {
         $form['news_form']['categories'] = [
-          '#type' => 'checkboxes',
+          '#type' => 'radios',
           '#title' => $this->t('Please, choose category'),
           '#options' => $this->getOptions($top_head_config['categories']),
+          '#required' => TRUE,
         ];
       }
 
@@ -122,8 +134,6 @@ class GoogleNewsPrepareForm extends FormBase {
         ],
       ];
 
-
-
       $form['news_form']['container'] = [
         '#type' => 'container',
         '#attributes' => ['id' => 'result'],
@@ -131,12 +141,13 @@ class GoogleNewsPrepareForm extends FormBase {
 
       if (\Drupal::service('tempstore.private')->get($form_state->getValue('type'))->get('data')) {
         $form['news_form']['container']['table'] = [
-          '#type' => 'tableselect',
+          '#type' => 'table',
           '#header' => [
-            'id' => $this->t('ID'),
-            'url' => $this->t('URL')
+            'source' => $this->t('Source'),
+            'title' => $this->t('Title'),
+            'url' => $this->t('URL'),
           ],
-          '#options' => \Drupal::service('tempstore.private')
+          '#rows' => \Drupal::service('tempstore.private')
               ->get($form_state->getValue('type'))
               ->get('data') ?? [],
           '#empty' => $this->t('No shapes found'),
@@ -205,6 +216,7 @@ class GoogleNewsPrepareForm extends FormBase {
           '#multiple' => TRUE,
           '#title' => $this->t('Please, choose language'),
           '#options' => $this->getOptions($everything_config['languages']),
+          '#required' => TRUE,
         ];
       }
 
@@ -229,12 +241,60 @@ class GoogleNewsPrepareForm extends FormBase {
       $form['news_form']['from'] = [
         '#type' => 'datetime',
         '#title' => $this->t('Set start time for news publishing'),
+        '#required' => TRUE,
       ];
 
       $form['news_form']['to'] = [
         '#type' => 'datetime',
         '#title' => $this->t('Set end time for news publishing'),
+        '#required' => TRUE,
       ];
+
+      $form['news_form']['button'] = [
+        '#type' => 'submit',
+        '#submit' => ['::getEverythingNews'],
+        '#value' => $this->t('Download'),
+        '#attributes' => [
+          'class' => ['btn btn-secondary'],
+        ],
+        '#ajax' => [
+          'callback' => '::addEverythingNewsCallback',
+          'wrapper' => 'result2',
+        ],
+      ];
+
+      $form['news_form']['container'] = [
+        '#type' => 'container',
+        '#attributes' => ['id' => 'result2'],
+      ];
+
+      if (\Drupal::service('tempstore.private')->get($form_state->getValue('type'))->get('data')) {
+        $form['news_form']['container']['table'] = [
+          '#type' => 'table',
+          '#header' => [
+            'source' => $this->t('Source'),
+            'title' => $this->t('Title'),
+            'url' => $this->t('URL'),
+          ],
+          '#rows' => \Drupal::service('tempstore.private')
+              ->get($form_state->getValue('type'))
+              ->get('data') ?? [],
+          '#empty' => $this->t('No shapes found'),
+
+        ];
+        $form['news_form']['container']['button2'] = [
+          '#type' => 'submit',
+          '#submit' => ['::clearEverythingNews'],
+          '#value' => $this->t('Clear'),
+          '#attributes' => [
+            'class' => ['btn btn-warning'],
+          ],
+          '#ajax' => [
+            'callback' => '::addEverythingNewsCallback',
+            'wrapper' => 'result',
+          ],
+        ];
+      }
 
     }
 
@@ -268,13 +328,32 @@ class GoogleNewsPrepareForm extends FormBase {
     return $result;
   }
 
+  /**
+   * @param array $form
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *
+   * @return void
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   */
   public function getTopNews(array &$form, FormStateInterface $form_state) {
     $tempstore = \Drupal::service('tempstore.private')->get('top');
     $data = $tempstore->get('data') ?? [];
-    $data[] = [
-      'id' => 'sdfsdf333',
-      'url' => 'sdfdsf'
-    ];
+    $arr = \Drupal::service('google_news_api')->getTopHeadLines(
+      $form_state->getValue('countries'),
+      $form_state->getValue('categories'),
+      $form_state->getValue('q_keys') != '' ? $form_state->getValue('q_keys') : NULL,
+      $form_state->getValue('sources') != '' ? $form_state->getValue('sources') : NULL,
+      $form_state->getValue('number')
+    );
+    $articles = array_slice($arr['articles'], 0, $form_state->getValue('number'));
+    foreach ($articles as $article) {
+      $data[] = [
+        'source' => $article['source']['name'],
+        'title' => Markup::create('<a href="' . $article['url'] . '" target="_blank">' . $article['title']  . '</a>'),
+        'url' => Markup::create('<a href="' . $article['url'] . '" target="_blank">test</a>')
+      ];
+    }
+
     $tempstore->set('data', $data);
     $form_state->setRebuild();
   }
@@ -288,5 +367,18 @@ class GoogleNewsPrepareForm extends FormBase {
     $tempstore->set('data', []);
     $form_state->setRebuild();
   }
+
+  public function addEverythingNewsCallback(array &$form, FormStateInterface $form_state) {
+
+  }
+
+  public function getEverythingNews(array &$form, FormStateInterface $form_state) {
+
+  }
+
+  public function clearEverythingNews(array &$form, FormStateInterface $form_state) {
+
+  }
+
 
 }

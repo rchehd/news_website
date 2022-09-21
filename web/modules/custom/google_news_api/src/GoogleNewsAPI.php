@@ -78,7 +78,7 @@ class GoogleNewsAPI {
                               ClientFactory              $clientFactory,
                               LoggerChannelFactoryInterface $logger) {
     $this->configFactory = $configFactory;
-    $this->apiKey = $configFactory->get('google_news_downloader.settings')->get('google_news_api_key');
+    $this->apiKey = $configFactory->get('google_news_api.settings')->get('google_news_api_key');
     $this->currentUser = $currentUser;
     $this->entityTypeManager = $entityTypeManager;
     $this->languageManager = $languageManager;
@@ -282,6 +282,10 @@ class GoogleNewsAPI {
       return [];
     }
 
+  }
+
+  public function test() {
+    return 'Hello';
   }
 
 }
