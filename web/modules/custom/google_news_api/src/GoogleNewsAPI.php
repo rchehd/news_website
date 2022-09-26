@@ -203,7 +203,7 @@ class GoogleNewsAPI {
    */
   public function getEverything($q, $searchIn=null, $sources=null, $domains=null, $exclude_domains=null, $from=null, $to=null, $language='en', $sort_by=null, $page_size=null, $page=null) {
     // Add default country.
-    $uri = $this::EVERYTHING_URL . 'q=' . $q . '&';
+    $uri = $this::EVERYTHING_URL;
 
     // Add category if existed.
     if (!is_null($q) && $q != "") {

@@ -1,6 +1,6 @@
 services:
-  google_news_api:
-    class: Drupal\google_news_downloader\GoogleNewsAPI
+  google_news_api2:
+    class: Drupal\google_news_downloader\GoogleNewsAPI2
     arguments:
       - '@config.factory'
       - '@current_user'

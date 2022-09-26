@@ -6,7 +6,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Drupal\google_news_downloader\GoogleNewsAPI;
+use Drupal\google_news_downloader\GoogleNewsAPI2;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -30,9 +30,9 @@ class EverythingNewsDownloader extends QueueWorkerBase implements ContainerFacto
   /**
    * Custom service google_news_api.
    *
-   * @var \Drupal\google_news_downloader\GoogleNewsAPI
+   * @var \Drupal\google_news_downloader\GoogleNewsAPI2
    */
-  private GoogleNewsAPI $googleNewsAPI;
+  private GoogleNewsAPI2 $googleNewsAPI;
 
   /**
    * Drupal service entity_type.manager.
@@ -41,10 +41,10 @@ class EverythingNewsDownloader extends QueueWorkerBase implements ContainerFacto
    */
   private EntityTypeManagerInterface $entityTypeManager;
 
-  public function __construct(array $configuration, $plugin_id,
-                              $plugin_definition,
-                              ConfigFactoryInterface $configFactory,
-                              GoogleNewsAPI $googleNewsAPI,
+  public function __construct(array                      $configuration, $plugin_id,
+                                                         $plugin_definition,
+                              ConfigFactoryInterface     $configFactory,
+                              GoogleNewsAPI2             $googleNewsAPI,
                               EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->configFactory = $configFactory;

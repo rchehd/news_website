@@ -10,7 +10,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Session\AccountInterface;
 
-class GoogleNewsAPI {
+class GoogleNewsAPI2 {
 
   /**
    * API url for headline news.
