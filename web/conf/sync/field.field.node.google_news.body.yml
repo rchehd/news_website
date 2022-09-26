@@ -1,0 +1,23 @@
+uuid: 4615d654-171a-4d02-be4d-c31f7161c694
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.google_news
+  module:
+    - text
+id: node.google_news.body
+field_name: body
+entity_type: node
+bundle: google_news
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

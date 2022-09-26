@@ -1,0 +1,13 @@
+google_news_api_key: b82cef6a27f0433db3bc2f01a03199bd
+top_head_settings:
+  countries: 'us, uk, gb'
+  categories: 'business, entertainment, general, health, science, sports, technology'
+  sources: ''
+everything_settings:
+  sources: ''
+  searchIn: 'title, content, description'
+  domains: ''
+  exclude_domains: ''
+  languages: 'en, ua'
+_core:
+  default_config_hash: 1DtI4GWOoaARFacpwf9W1Afx697peBE61azi3pQAZic

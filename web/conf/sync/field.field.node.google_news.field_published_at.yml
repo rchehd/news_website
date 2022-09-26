@@ -1,0 +1,21 @@
+uuid: b5de71a6-e93c-41c4-adaa-204f68add22a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_at
+    - node.type.google_news
+id: node.google_news.field_published_at
+field_name: field_published_at
+entity_type: node
+bundle: google_news
+label: 'Published At'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1663069221
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

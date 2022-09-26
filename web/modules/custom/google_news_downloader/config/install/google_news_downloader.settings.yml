@@ -1,0 +1,22 @@
+google_news_api_key: ''
+top_head_settings:
+  frequency: 15
+  countries: 'en'
+  categories: 'business, entertainment, general, health, science, sports, technology'
+  q_keys: ''
+  sources: ''
+  page_size: 100
+  page: 1
+everything_settings:
+  frequency: 60
+  q_keys: '"Google News", "УНІАН", "Українська правда", "ТСН", "BBC Україна", "Радіо Свобода", "РБК-Украина", "The Independent", "The Guardian, Sky News", "The Times"'
+  sources: ''
+  searchIn: 'title'
+  domains: ''
+  exclude_domains: ''
+  languages: 'en'
+  sort_by: popularity
+  page_size: 100
+  page: 1
+
+

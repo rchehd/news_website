@@ -24,6 +24,7 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  google_news_api: 0
   help: 0
   history: 0
   image: 0
@@ -32,6 +33,7 @@ module:
   locale: 0
   menu_link_content: 0
   menu_ui: 0
+  module_filter: 0
   mysql: 0
   news_search: 0
   node: 0
@@ -40,6 +42,7 @@ module:
   path: 0
   path_alias: 0
   rdf: 0
+  remote_image: 0
   search: 0
   shortcut: 0
   standard: 0

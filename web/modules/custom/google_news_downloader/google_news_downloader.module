@@ -1,0 +1,171 @@
+<?php
+
+/**
+ * @file
+ * Contains google_news_downloader.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function google_news_downloader_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the google_news_downloader module.
+    case 'help.page.google_news_downloader':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Google News Downloader') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Create queue of parameters to update news.
+ */
+function google_news_downloader_cron(): void {
+  if (true) {
+    // Get current time of starting.
+    $current_time = \Drupal::time()->getCurrentTime();
+    // Get general configs.
+    $configs = \Drupal::service('config.factory')->get('google_news_downloader.settings');
+    // Private tempstore.
+    $tempstore = \Drupal::service('tempstore.private');
+    // Get configs of "Top Headlines" and "Everything".
+    $top_headlines_configs = $configs->get('top_head_settings');
+    $everything_configs = $configs->get('everything_settings');
+    // Get last time of updating.
+    $last_time_updated_tp_queue = (int) $tempstore->get('top_headline_finished')->get('time') ?? 0;
+    $last_time_updated_ev_queue = (int) $tempstore->get('everything_finished')->get('time') ?? 0;
+
+    // Conditions by frequency updating.
+    $condition_1 = ($current_time - $last_time_updated_tp_queue) >= $top_headlines_configs['frequency'];
+    $condition_2 = ($current_time - $last_time_updated_ev_queue) >= $everything_configs['frequency'];
+
+    if ($condition_1) {
+      createQueueItemForTopHeadlines($top_headlines_configs, $current_time);
+    }
+
+//    if ($condition_2) {
+//      createQueueItemForEverything($everything_configs, $current_time - ((int) $everything_configs['frequency'] * 60), $current_time);
+//    }
+  }
+}
+
+function createQueueItemForEverything($everything_configs, $from, $to): void {
+  $tempstore = \Drupal::service('tempstore.private')->get('everything_finished');
+  $everything_queue = \Drupal::queue('google_everything_downloader');
+  $languages = explode(',', $everything_configs['languages']);
+  $q_keys = explode(',', $everything_configs['q_keys']);
+  if ($languages) {
+    foreach ($languages as $language) {
+      if ($q_keys) {
+        foreach ($q_keys as $q_key) {
+          $data = [
+            'q'=> $q_key,
+            'searchIn'=> $everything_configs['searchIn'] ?? NULL,
+            'sources'=> $everything_configs['sources'] ?? NULL,
+            'domains'=> $everything_configs['domains'] ?? NULL,
+            'exclude_domains'=> $everything_configs['exclude_domains'] ?? NULL,
+            'from'=> date('c', $from),
+            'to'=> date('c', $to),
+            'language'=> $language,
+            'sort_by'=> $everything_configs['sort_by'],
+            'page_size' => $everything_configs['page_size'] ?? NULL,
+            'page' => $everything_configs['page'] ?? NULL,
+          ];
+          $everything_queue->createItem($data);
+        }
+      }
+      else {
+        $data = [
+          'q'=> NULL,
+          'searchIn'=> $everything_configs['searchIn'] ?? NULL,
+          'sources'=> $everything_configs['sources'] ?? NULL,
+          'domains'=> $everything_configs['domains'] ?? NULL,
+          'exclude_domains'=> $everything_configs['exclude_domains'] ?? NULL,
+          'from'=> date('c', $from),
+          'to'=> date('c', $to),
+          'language'=> $language,
+          'sort_by'=> $everything_configs['sort_by'],
+          'page_size' => $everything_configs['page_size'] ?? NULL,
+          'page' => $everything_configs['page'] ?? NULL,
+          ];
+        $everything_queue->createItem($data);
+      }
+    }
+  }
+  $tempstore->set('time', $to);
+}
+
+function createQueueItemForTopHeadlines($top_headlines_configs, $current_time): void {
+  $tempstore = \Drupal::service('tempstore.private')->get('top_headline_finished');
+  $top_headlines_queue = \Drupal::queue('google_top_headlines_downloader');
+  $countries = explode(',', $top_headlines_configs['countries']);
+  $categories = explode(',', $top_headlines_configs['categories']);
+  $q_keys = explode(',', $top_headlines_configs['q_keys']);
+  $sources = explode(',', $top_headlines_configs['sources']);
+  if ($countries && $categories) {
+    foreach ($countries as $country) {
+      foreach ($categories as $category) {
+        if ($q_keys) {
+          foreach ($q_keys as $q_key) {
+            $data = [
+              'country' => $country,
+              'category' => $category,
+              'q' => $q_key,
+              'sources' => NULL,
+              'page_size' => $top_headlines_configs['page_size'] ?? NULL,
+              'page' => $top_headlines_configs['page'] ?? NULL,
+            ];
+            $top_headlines_queue->createItem($data);
+          }
+        }
+        else {
+          $data = [
+            'country' => $country,
+            'category' => $category,
+            'q' => NULL,
+            'sources' => NULL,
+            'page_size' => $top_headlines_configs['page_size'] ?? NULL,
+            'page' => $top_headlines_configs['page'] ?? NULL,
+          ];
+          $top_headlines_queue->createItem($data);
+        }
+      }
+    }
+  }
+  else {
+    if ($q_keys) {
+      foreach ($q_keys as $q_key) {
+        $data = [
+          'country' => NULL,
+          'category' => NULL,
+          'q' => $q_key,
+          'sources' => $top_headlines_configs['sources'] ?? NULL,
+          'page_size' => $top_headlines_configs['page_size'] ?? NULL,
+          'page' => $top_headlines_configs['page'] ?? NULL,
+        ];
+        $top_headlines_queue->createItem($data);
+      }
+    }
+    else {
+      $data = [
+        'country' => NULL,
+        'category' => NULL,
+        'q' => NULL,
+        'sources' => $top_headlines_configs['sources'] ?? NULL,
+        'page_size' => $top_headlines_configs['page_size'] ?? NULL,
+        'page' => $top_headlines_configs['page'] ?? NULL,
+      ];
+      $top_headlines_queue->createItem($data);
+    }
+  }
+
+  $tempstore->set('time', $current_time);
+}

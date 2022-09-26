@@ -1,0 +1,21 @@
+uuid: ab390722-47cb-4d7c-ae0a-d47be0fc4546
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.google_news
+  module:
+    - text
+id: node.google_news.field_description
+field_name: field_description
+entity_type: node
+bundle: google_news
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

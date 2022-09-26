@@ -1,0 +1,39 @@
+google_news_api.settings:
+  type: mapping
+  label: 'Google News API settings'
+  mapping:
+    google_news_api_key:
+      type: string
+      label: 'Private API cay.'
+    top_head_settings:
+      type: mapping
+      label: 'Google News Top headlines news settings'
+      mapping:
+        countries:
+          type: string
+          label: 'List of allowed countries to get news from.'
+        categories:
+          type: string
+          label: 'List of allowed categories to get news.'
+        sources:
+          type: string
+          label: 'Sources names of news.'
+    everything_settings:
+      type: mapping
+      label: 'Google News Everything news settings'
+      mapping:
+        sources:
+          type: string
+          label: 'Sources names of news.'
+        searchIn:
+          type: string
+          label: 'The fields to restrict your key phrase search to.'
+        domains:
+          type: string
+          label: 'Domains for getting news.'
+        exclude_domains:
+          type: string
+          label: 'Excluded domains for getting news.'
+        languages:
+          type: string
+          label: 'Languages for getting news.'

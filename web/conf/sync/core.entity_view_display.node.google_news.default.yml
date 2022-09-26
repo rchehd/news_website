@@ -1,0 +1,111 @@
+uuid: f3264d41-9149-4b4f-aac8-c11519ba76e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.google_news.body
+    - field.field.node.google_news.field_author
+    - field.field.node.google_news.field_banner
+    - field.field.node.google_news.field_description
+    - field.field.node.google_news.field_external_url
+    - field.field.node.google_news.field_published_at
+    - field.field.node.google_news.field_remote_image
+    - field.field.node.google_news.field_source_name
+    - field.field.node.google_news.field_type
+    - node.type.google_news
+  module:
+    - image
+    - link
+    - remote_image
+    - text
+    - user
+id: node.google_news.default
+targetEntityType: node
+bundle: google_news
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_author:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_banner:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_external_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_published_at:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_remote_image:
+    type: remote_image
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_source_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,74 @@
+google_news_downloader.settings:
+  type: mapping
+  label: 'Google News API settings'
+  mapping:
+    google_news_api_key:
+      type: string
+      label: 'Private API cay.'
+    top_head_settings:
+      type: mapping
+      label: 'Google News Top headlines news settings'
+      mapping:
+        frequency:
+          type: int
+          label: 'Frequency of news updating.'
+        countries:
+          type: string
+          label: 'List of allowed countries to get news from.'
+        categories:
+          type: string
+          label: 'List of allowed categories to get news.'
+        q_keys:
+          type: string
+          label: 'Key phrases found in the news.'
+        sources:
+          type: string
+          label: 'Sources names of news.'
+        page_size:
+          type: int
+          label: 'Max count of news in one request.'
+        page:
+          type: int
+          label: 'Count of pages with news on one page in one request.'
+    everything_settings:
+      type: mapping
+      label: 'Google News Everything news settings'
+      mapping:
+        frequency:
+          type: int
+          label: 'Frequency of news updating.'
+        q_keys:
+          type: string
+          label: 'Key phrases found in the news.'
+        sources:
+          type: string
+          label: 'Sources names of news.'
+        searchIn:
+          type: string
+          label: 'The fields to restrict your key phrase search to.'
+        domains:
+          type: string
+          label: 'Domains for getting news.'
+        exclude_domains:
+          type: string
+          label: 'Excluded domains for getting news.'
+        languages:
+          type: string
+          label: 'Languages for getting news.'
+        sort_by:
+          type: string
+          label: 'Sort getting news by.'
+        page_size:
+          type: int
+          label: 'Max count of news in one request.'
+        page:
+          type: int
+          label: 'Count of pages with news on one page in one request.'
+
+
+
+
+
+
+
+

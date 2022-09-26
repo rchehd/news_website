@@ -1,0 +1,29 @@
+uuid: 02fcb25f-980a-495e-bd81-71604962c814
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.google_news
+    - taxonomy.vocabulary.google_news_types
+id: node.google_news.field_type
+field_name: field_type
+entity_type: node
+bundle: google_news
+label: Type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      google_news_types: google_news_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

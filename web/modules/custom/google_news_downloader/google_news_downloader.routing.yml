@@ -1,0 +1,7 @@
+google_news_downloader.settings:
+  path: '/admin/config/search/google_news_downloader'
+  defaults:
+    _form: '\Drupal\google_news_downloader\Form\GoogleNewsApiSettingsForm'
+    _title: 'Google News API settings'
+  requirements:
+    _permission: 'administer Google News API'

@@ -1,0 +1,18 @@
+uuid: 746d16dc-e70b-4cc2-b477-7df1492c7dcf
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Google news'
+type: google_news
+description: 'Google news content type'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

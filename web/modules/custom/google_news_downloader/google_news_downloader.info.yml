@@ -1,0 +1,5 @@
+name: 'Google News'
+type: module
+description: 'Download news from Google News service'
+core_version_requirement: ^8.8.0 || ^9 || ^10
+package: 'Custom'

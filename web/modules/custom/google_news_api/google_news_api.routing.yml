@@ -1,0 +1,15 @@
+google_news_api.news_prepare_form:
+  path: '/admin/structure/google_news_api/news-search-form'
+  defaults:
+    _form: '\Drupal\google_news_api\Form\GoogleNewsPrepareForm'
+    _title: 'Get templates from Google News'
+  requirements:
+    _permission: 'administer Google News API'
+
+google_news_api.settings:
+  path: '/admin/structure/google_news_api/google-api-settings'
+  defaults:
+    _form: '\Drupal\google_news_api\Form\GoogleNewsApiSettingsForm'
+    _title: 'Google News API settings'
+  requirements:
+    _permission: 'administer Google News API'

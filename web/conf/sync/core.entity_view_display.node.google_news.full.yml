@@ -1,0 +1,88 @@
+uuid: fca2c58d-b5fe-47f1-8ba1-a08a76acb658
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.google_news.body
+    - field.field.node.google_news.field_author
+    - field.field.node.google_news.field_banner
+    - field.field.node.google_news.field_description
+    - field.field.node.google_news.field_external_url
+    - field.field.node.google_news.field_published_at
+    - field.field.node.google_news.field_remote_image
+    - field.field.node.google_news.field_source_name
+    - field.field.node.google_news.field_type
+    - node.type.google_news
+  module:
+    - link
+    - remote_image
+    - text
+    - user
+id: node.google_news.full
+targetEntityType: node
+bundle: google_news
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_author:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_external_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_published_at:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_remote_image:
+    type: remote_image
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_source_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_banner: true
+  field_description: true
+  field_type: true
+  langcode: true
