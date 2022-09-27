@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a9356e11e936a2ea58009d379990daa",
+    "content-hash": "885429b8ade083698dd904c63322371f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -129,6 +129,19 @@
                 "source": "https://github.com/asm89/stack-cors/tree/1.3.0"
             },
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "asset/bootstrap",
+            "version": "5.1.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1a6fdfae6be09b09eaced8f0e442ca6f7680a61e",
+                "reference": "1a6fdfae6be09b09eaced8f0e442ca6f7680a61e"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "bootstrap"
+            }
         },
         {
             "name": "composer/installers",

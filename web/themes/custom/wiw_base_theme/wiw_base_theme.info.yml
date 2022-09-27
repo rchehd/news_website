@@ -1,0 +1,29 @@
+name: 'World of Words Base Theme'
+description: 'Base theme for AWorld of Words site.'
+type: theme
+core_version_requirement: ^9 || ^10
+base theme: false
+
+regions:
+  top_header: 'Top header'
+  language_switcher: 'Language switcher'
+  header: Header
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  footer: 'Footer'
+  footer_bottom: 'Footer bottom'
+
+libraries:
+  - am_base_theme/global_styling
+  - am_base_theme/bootstrap_js
+  - am_base_theme/header_scroll
+  - am_base_theme/footer_dropdown
+  - am_base_theme/slider_arrow
+  - am_base_theme/banner_bg
+  - am_base_theme/cke_fix
+
+ckeditor_stylesheets:
+  - assets/css/ckeditor.css

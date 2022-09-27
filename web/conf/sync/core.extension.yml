@@ -53,6 +53,7 @@ module:
   tour: 0
   ultimate_cron: 0
   user: 0
+  update: 0
   views_ui: 0
   content_translation: 10
   views: 10

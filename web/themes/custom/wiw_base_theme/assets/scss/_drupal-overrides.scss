@@ -1,0 +1,20 @@
+//menu local tasks override
+
+.nav-item {
+  a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    text-decoration: none;
+    color: #0d6efd;
+  }
+}
+
+.ui-dialog-titlebar-close {
+  &:after {
+    display: inline-block;
+    content: "\00d7";
+    color: white;
+    font-size: 32px;
+  }
+}

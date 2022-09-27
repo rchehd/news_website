@@ -1,0 +1,24 @@
+{% set heading_level = heading_level|default(3) %}
+
+<div{{ attributes.addClass('card') }}>
+  {% if image %}
+    {{ image }}
+  {% endif %}
+
+  <div class="card-body">
+    {% if title %}
+      <h{{ heading_level }} class="card-title">{{ title }}</h{{ heading_level }}>
+    {% endif %}
+    {% if text %}
+      <div class="card-text">
+        {{ text }}
+      </div>
+    {% endif %}
+    {% if links %}
+      <div class="card-link">
+      {{ links }}
+      </div>
+    {% endif %}
+  </div>
+
+</div>

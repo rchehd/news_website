@@ -1,0 +1,6 @@
+am_base_theme_guidelines:
+  enabled: true
+  label: 'Guidelines'
+  render:
+    -
+      '#theme': am_base_theme_examples

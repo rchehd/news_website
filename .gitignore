@@ -35,9 +35,6 @@ vendor/*
 /private_files
 /web/sites/simpletest
 
-/web/themes/custom/*/scss
-/web/themes/custom/*/.sass-cache
-
 # Build.
 build
 
@@ -53,3 +50,4 @@ sites/*/files
 /.sass-cache
 
 
+/node_modules/

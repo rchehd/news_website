@@ -1,0 +1,4 @@
+{% if title %}
+  {% set html_structure = html_structure ?: 'h2' %}
+  <{{ html_structure }} {{ attributes }}>{{ title }}</{{ html_structure }}>
+{% endif %}

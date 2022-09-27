@@ -1,0 +1,44 @@
+// To import Bootstrap as a whole.
+//@import "../../../../../../web/libraries/bootstrap/scss/bootstrap.scss";
+
+@import "../../../../../../web/libraries/bootstrap/scss/mixins";
+@import "../../../../../../web/libraries/bootstrap/scss/utilities";
+
+// Layout & components
+@import "../../../../../../web/libraries/bootstrap/scss/root";
+@import "../../../../../../web/libraries/bootstrap/scss/reboot";
+@import "../../../../../../web/libraries/bootstrap/scss/type";
+@import "../../../../../../web/libraries/bootstrap/scss/images";
+@import "../../../../../../web/libraries/bootstrap/scss/containers";
+@import "../../../../../../web/libraries/bootstrap/scss/grid";
+@import "../../../../../../web/libraries/bootstrap/scss/tables";
+@import "../../../../../../web/libraries/bootstrap/scss/forms";
+@import "../../../../../../web/libraries/bootstrap/scss/buttons";
+@import "../../../../../../web/libraries/bootstrap/scss/transitions";
+@import "../../../../../../web/libraries/bootstrap/scss/dropdown";
+@import "../../../../../../web/libraries/bootstrap/scss/button-group";
+@import "../../../../../../web/libraries/bootstrap/scss/nav";
+@import "../../../../../../web/libraries/bootstrap/scss/navbar";
+@import "../../../../../../web/libraries/bootstrap/scss/card";
+@import "../../../../../../web/libraries/bootstrap/scss/accordion";
+@import "../../../../../../web/libraries/bootstrap/scss/breadcrumb";
+@import "../../../../../../web/libraries/bootstrap/scss/pagination";
+@import "../../../../../../web/libraries/bootstrap/scss/badge";
+@import "../../../../../../web/libraries/bootstrap/scss/alert";
+@import "../../../../../../web/libraries/bootstrap/scss/progress";
+@import "../../../../../../web/libraries/bootstrap/scss/list-group";
+@import "../../../../../../web/libraries/bootstrap/scss/close";
+@import "../../../../../../web/libraries/bootstrap/scss/toasts";
+@import "../../../../../../web/libraries/bootstrap/scss/modal";
+@import "../../../../../../web/libraries/bootstrap/scss/tooltip";
+@import "../../../../../../web/libraries/bootstrap/scss/popover";
+@import "../../../../../../web/libraries/bootstrap/scss/carousel";
+@import "../../../../../../web/libraries/bootstrap/scss/spinners";
+@import "../../../../../../web/libraries/bootstrap/scss/offcanvas";
+@import "../../../../../../web/libraries/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../../../../../../web/libraries/bootstrap/scss/helpers";
+
+// Utilities
+@import "../../../../../../web/libraries/bootstrap/scss/utilities/api";

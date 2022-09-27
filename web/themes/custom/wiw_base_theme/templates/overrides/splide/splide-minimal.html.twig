@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the splide-minimal item template.
+ *
+ * This is a vanilla alternative for splide__slide.html.twig where everything is
+ * dumped as is into 'item'. Think of it as a raw individual item output.
+ * Choosing vanilla means you are on your own, and want a more controlled item.
+ * Be warned! This template is also used by thumbnail navigation which happens
+ * to have the same structure and attributes. Be sure to not mess up thumbnails
+ * should you need to work with vanilla versions.
+ *
+ * Available variables:
+ * - attributes: An array of attributes to apply to the element.
+ * - item: A renderable array of the slide content.
+ * - item.slide: A renderable array of the (thumbnail) image/background.
+ * - item.caption: A renderable array containing caption text.
+ * - settings: An array containing the given settings.
+ *
+ * @see template_preprocess_splide_minimal()
+ */
+#}
+{%
+  set classes = [
+    'slide--' ~ delta,
+    settings.am_base_item_classes ? settings.am_base_item_classes,
+  ]
+%}
+{{ block("splide_minimal", "@splide/splide-minimal.html.twig") }}

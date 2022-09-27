@@ -1,0 +1,190 @@
+.splide {
+  max-width: 650px;
+  margin: 0 auto;
+
+  &--nav {
+    display: none;
+  }
+
+  &:not(.splide--nav) {
+    .splide {
+      &__arrows {
+        position: absolute;
+        right: 0;
+        bottom: -12px;
+      }
+    }
+  }
+
+  &__arrows {
+    display: none;
+
+    @media (min-width: 767px) {
+      display: flex;
+      order: 2;
+      margin-left: 18px;
+    }
+  }
+
+  &__arrow {
+    position: static;
+    top: unset;
+    left: unset;
+    width: 38px;
+    height: 38px;
+    transition: background-color 0.3s;
+    transform: unset;
+    opacity: 1;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &-item {
+      display: flex;
+      overflow: hidden;
+      justify-content: center;
+      width: 28px;
+      height: 38px;
+      transition: transform 0.3s;
+
+      &:after {
+        display: block;
+        width: 38px;
+        height: 38px;
+        content: "";
+        transition: transform 0.3s, filter 0.3s;
+        background: transparent;
+        background-image: url(../images/optimized/slider-arrow.svg);
+        background-position: center;
+      }
+    }
+
+    &:hover {
+      background-color: $primary;
+
+      .splide__arrow-item {
+        transform: translateX(5px);
+
+        &:after {
+          transform: translateX(-10px);
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+
+    &--prev {
+      margin-right: 20px;
+      transform: rotate(180deg);
+    }
+
+    svg {
+      display: none;
+    }
+  }
+
+  &__slide {
+    transition: opacity 0.3s;
+
+    .blazy .media {
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      &:before {
+        display: block;
+        padding-bottom: 100%;
+        content: "";
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  &__pagination {
+    position: static;
+    right: unset;
+    bottom: unset;
+    left: unset;
+    margin-top: 20px;
+
+    li {
+      display: flex;
+    }
+
+    &__page {
+      width: 13px;
+      height: 13px;
+      margin: 0 8px;
+      transform: border-width 0.3s border-color 0.3s;
+      opacity: 1;
+      border: 2px solid #dcdee1;
+      background: transparent;
+
+      &.is-active {
+        transform: unset;
+        border: 4px solid $primary;
+        background: transparent;
+      }
+    }
+  }
+
+  @media (min-width: 767px) {
+    &--nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin: 18px auto 0;
+
+      & > .splide__slider > .splide__track > .splide__list > .splide__slide,
+      & > .splide__slider > .splide__track > .splide__list > .splide__slide.is-active {
+        border: none;
+      }
+
+      & > .splide__slider > .splide__track > .splide__list > .splide__slide {
+        opacity: 0.5;
+      }
+
+      & > .splide__slider > .splide__track > .splide__list > .splide__slide.is-active {
+        opacity: 1;
+      }
+
+      & > .splide__slider > .splide__track > .splide__list > .splide__slide > .slide__thumbnail {
+        position: relative;
+        display: block;
+        overflow: hidden;
+
+        &:before {
+          display: block;
+          padding-bottom: 100%;
+          content: "";
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .splide {
+        &__track {
+          margin-right: 20px;
+        }
+
+        &__slider {
+          width: 65%;
+        }
+      }
+    }
+  }
+}

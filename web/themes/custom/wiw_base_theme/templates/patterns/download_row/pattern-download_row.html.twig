@@ -1,0 +1,32 @@
+<div {{ attributes.addClass(['u-product-block', 'c-product-information'])}}>
+  <div class="c-product-information__list-item">
+    <div class="c-product-information__name">
+      {{ description }}
+    </div>
+
+    <div class="c-product-information__info">
+      <div class="c-product-information__lang">
+        {{ language }}
+      </div>
+
+      <div class="c-product-information__actions">
+        <div class="c-product-information__action">
+          <img
+            src="/themes/custom/am_base_theme/assets/images/optimized/eye.svg"
+            alt=""
+            class="c-product-information__icon-eye"
+          >
+          {{ document_read }}
+        </div>
+        <div class="c-product-information__action">
+          <img
+            src="/themes/custom/am_base_theme/assets/images/optimized/download.svg"
+            alt=""
+            class="c-product-information__icon-download"
+          >
+          {{ document_download }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

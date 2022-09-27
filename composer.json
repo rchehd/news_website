@@ -12,9 +12,26 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "asset/bootstrap",
+                "version": "5.1.3",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "bootstrap"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/twbs/bootstrap/zipball/1a6fdfae6be09b09eaced8f0e442ca6f7680a61e",
+                    "reference": "1a6fdfae6be09b09eaced8f0e442ca6f7680a61e"
+                }
+            }
         }
     ],
     "require": {
+        "asset/bootstrap": "^5.1",
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "^3.1",
         "drupal/adminimal_theme": "^1.6",
