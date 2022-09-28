@@ -18,6 +18,9 @@ google_news_api.settings:
         sources:
           type: string
           label: 'Sources names of news.'
+        content_type:
+          type: string
+          label: 'Name of content type for Top Headlines news.'
     everything_settings:
       type: mapping
       label: 'Google News Everything news settings'
@@ -37,3 +40,6 @@ google_news_api.settings:
         languages:
           type: string
           label: 'Languages for getting news.'
+        content_type:
+          type: string
+          label: 'Name of content type for Everything news.'

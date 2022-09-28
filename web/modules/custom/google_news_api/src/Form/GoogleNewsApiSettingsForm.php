@@ -4,6 +4,8 @@ namespace Drupal\google_news_api\Form;
 use DOMDocument;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\field\Entity\FieldConfig;
 
 class GoogleNewsApiSettingsForm extends ConfigFormBase {
 
@@ -26,6 +28,13 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $config = $this->config('google_news_api.settings');
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+
+    $types = [];
+    $contentTypes = $entityTypeManager->getStorage('node_type')->loadMultiple();
+    foreach ($contentTypes as $contentType) {
+      $types[$contentType->id()] = $contentType->label();
+    }
 
     $form['google_news_api_key'] = [
       '#type' => 'textfield',
@@ -46,6 +55,32 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#open' => TRUE,
     );
 
+    $form['top_head_settings']['content_type_top'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Choose content type to use for Top Headline news'),
+      '#default_value' => $top_head_config['content_type'] ?? reset($types),
+      '#options' => $types,
+      '#required' => TRUE,
+      '#description' => $this->t('<a href="/admin/structure/types/add" >You can create content type here.</a>'),
+      '#ajax' => [
+        'callback' => '::showContentTypesFields',
+        'wrapper' => 'content_type_fields',
+      ],
+    ];
+
+    $form['top_head_settings']['container'] = [
+      '#type' => 'details',
+      '#attributes' => ['id' => 'content_type_fields'],
+      '#open' => TRUE,
+      '#title' => t('Set field value'),
+    ];
+
+    $form['top_head_settings']['container']['container2'] = [
+      '#type' => 'container',
+    ];
+
+    $form['top_head_settings']['container']['container2']['content_type_fields_top'] = $this->getComparison($form_state->getValue('content_type_top') ?? $top_head_config['content_type']);
+
     $form['top_head_settings']['top_head_settings_countries'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Available countries'),
@@ -64,7 +99,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#type' => 'textarea',
       '#title' => $this->t('Sources names of articles'),
       '#default_value' => $top_head_config['sources'],
-      '#description' => $this->t('Add <a href="https://newsapi.org/sources" target="_blank">sources id</a> across coma. Note: you can not mix this param with the country or category params.'),
+      '#description' => $this->t('Add <a href="/admin/structure/types/add" >sources id</a> across coma. Note: you can not mix this param with the country or category params.'),
     ];
 
     // Settings for "Everything news".
@@ -74,6 +109,15 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#title' => t('Settings for "Everything news"'),
       '#description' => $this->t('Here you can configure news downloader for "Everything news"'),
       '#open' => TRUE,
+    ];
+
+    $form['everything_settings']['content_type_every'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Choose content type to use for Everything news'),
+      '#default_value' => $everything_config['content_type'] ?? reset($types),
+      '#options' => $types,
+      '#required' => TRUE,
+      '#description' => $this->t('<a href="/admin/structure/types/add" >You can create content type here.</a>'),
     ];
 
     $form['everything_settings']['everything_settings_sources'] = [
@@ -130,6 +174,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       'countries'=> $form_state->getValue('top_head_settings_countries'),
       'categories'=> $form_state->getValue('top_head_settings_categories'),
       'sources'=> $form_state->getValue('top_head_settings_sources'),
+      'content_type'=> $form_state->getValue('content_type_top'),
     ];
     $config->set('top_head_settings', $top_head_config);
 
@@ -140,6 +185,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       'domains'=> $form_state->getValue('everything_settings_domains'),
       'exclude_domains'=> $form_state->getValue('everything_settings_exclude_domains'),
       'languages'=> $form_state->getValue('everything_settings_languages'),
+      'content_type'=> $form_state->getValue('content_type_every'),
     ];
     $config->set('everything_settings', $everything_config);
 
@@ -175,6 +221,58 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
     if ($form_state->getValue('everything_settings_languages') !== "" & preg_match('/^[a-z]{2}(?:, [a-z]{2})*$/', $form_state->getValue('everything_settings_languages')) != 1) {
       $form_state->setError($form['everything_settings']['everything_settings_languages'],$this->t('Please, add the 2-letter ISO-639-1 code of the language you want to get headlines for across coma. (Example: en, es, ua).'));
     }
+  }
+
+  public function showContentTypesFields(array &$form, FormStateInterface $form_state) {
+//    $all_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $form_state->getValue('content_type_top'));
+//    $fields = [];
+//    $options = Settings::get('top_headline_news_keys');
+//    foreach ($all_fields as $field) {
+//      if ($field instanceof FieldConfig) {
+//        $fields[] = $field;
+//      }
+//    }
+//    foreach ($fields as $field) {
+//      if ($field instanceof FieldConfig) {
+//        $form['top_head_settings']['container'][$field->get('field_name') . '_top'] = [
+//          '#type' => 'select',
+//          '#title' => $field->label(),
+//          '#default_value' => null,
+//          '#options' => $options,
+//          '#empty_option' => $this->t('- None -'),
+//        ];
+//      }
+//
+//    }
+    return $form['top_head_settings']['container'];
+  }
+
+  private function getComparison(mixed $content_type): array {
+    if ($content_type == null) {
+      $content_type = 'article';
+    }
+    $all_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $content_type);
+    $fields = [];
+    $result = [];
+    $options = Settings::get('top_headline_news_keys');
+    foreach ($all_fields as $field) {
+      if ($field instanceof FieldConfig) {
+        $fields[] = $field;
+      }
+    }
+    foreach ($fields as $field) {
+      if ($field instanceof FieldConfig) {
+        $result[$field->get('field_name') . '_top'] = [
+          '#type' => 'select',
+          '#title' => $field->label(),
+          '#default_value' => null,
+          '#options' => $options,
+          '#empty_option' => $this->t('- None -'),
+        ];
+      }
+    }
+    return $result;
+
   }
 
 }

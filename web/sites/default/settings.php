@@ -806,3 +806,25 @@ $databases['default']['default'] = array (
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
 $settings['config_sync_directory'] = 'conf/sync';
+
+$settings['top_headline_news_keys'] = [
+  'source' => 'source',
+  'author'=> 'author',
+  'title' => 'title',
+  'description' => 'description',
+  'url' => 'url',
+  'urlToImage' => 'urlToImage',
+  'publishedAt' => 'publishedAt',
+  'content' => 'content',
+];
+
+$settings['everything_news_keys'] = [
+  'source' => 'source',
+  'author'=> 'author',
+  'title' => 'title',
+  'description' => 'description',
+  'url' => 'url',
+  'urlToImage' => 'urlToImage',
+  'publishedAt' => 'publishedAt',
+  'content' => 'content',
+];

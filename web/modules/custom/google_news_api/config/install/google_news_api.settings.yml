@@ -3,12 +3,14 @@ top_head_settings:
   countries: 'en, uk'
   categories: 'business, entertainment, general, health, science, sports, technology'
   sources: ''
+  content_type: ''
 everything_settings:
   sources: ''
   searchIn: 'title'
   domains: ''
   exclude_domains: ''
   languages: 'en, uk'
+  content_type: ''
 
 
 

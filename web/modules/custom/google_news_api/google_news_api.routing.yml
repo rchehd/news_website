@@ -13,3 +13,11 @@ google_news_api.settings:
     _title: 'Google News API settings'
   requirements:
     _permission: 'administer Google News API'
+
+google_news_api.add_news:
+  path: '/news/add/{news_type}'
+  defaults:
+    _controller: '\Drupal\google_news_api\Controller\GoogleNewsApiSettingsForm'
+    _title: 'Google News API settings'
+  requirements:
+    _permission: 'administer Google News API'
