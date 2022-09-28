@@ -12,6 +12,7 @@ module:
   ckeditor5: 0
   comment: 0
   config: 0
+  config_inspector: 0
   config_translation: 0
   contact: 0
   contextual: 0
@@ -52,8 +53,8 @@ module:
   toolbar: 0
   tour: 0
   ultimate_cron: 0
-  user: 0
   update: 0
+  user: 0
   views_ui: 0
   content_translation: 10
   views: 10
@@ -68,4 +69,5 @@ theme:
   classy: 0
   bootstrap5: 0
   wiw_theme: 0
+  wiw_base_theme: 0
 profile: standard

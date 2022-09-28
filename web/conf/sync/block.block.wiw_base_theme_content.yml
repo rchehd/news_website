@@ -1,0 +1,22 @@
+uuid: d8831d6a-9fe0-4126-b16e-b1ad5a39b874
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_base_theme
+_core:
+  default_config_hash: 25NakIJx1-CsRRRXD2jdURtmsAYeK-dF3FYkqqpcQM0
+id: wiw_base_theme_content
+theme: wiw_base_theme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

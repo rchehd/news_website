@@ -72,14 +72,15 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#type' => 'details',
       '#attributes' => ['id' => 'content_type_fields'],
       '#open' => TRUE,
-      '#title' => t('Set field value'),
+      '#title' => t('Set comparison from content type fields to Google News values'),
     ];
 
     $form['top_head_settings']['container']['container2'] = [
       '#type' => 'container',
     ];
 
-    $form['top_head_settings']['container']['container2']['content_type_fields_top'] = $this->getComparison($form_state->getValue('content_type_top') ?? $top_head_config['content_type']);
+    $form['top_head_settings']['container']['container2']['content_type_fields_top'] =
+      $this->getComparison($form_state->getValue('content_type_top') ?? $top_head_config['content_type'], 'top');
 
     $form['top_head_settings']['top_head_settings_countries'] = [
       '#type' => 'textarea',
@@ -118,7 +119,26 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       '#options' => $types,
       '#required' => TRUE,
       '#description' => $this->t('<a href="/admin/structure/types/add" >You can create content type here.</a>'),
+      '#ajax' => [
+        'callback' => '::showContentTypesFields2',
+        'wrapper' => 'content_type_fields2',
+      ],
     ];
+
+    $form['everything_settings']['container'] = [
+      '#type' => 'details',
+      '#attributes' => ['id' => 'content_type_fields2'],
+      '#open' => TRUE,
+      '#title' => t('Set comparison from content type fields to Google News values'),
+    ];
+
+    $form['everything_settings']['container']['container2'] = [
+      '#type' => 'container',
+    ];
+
+    $form['everything_settings']['container']['container2']['content_type_fields_every'] =
+      $this->getComparison($form_state->getValue('content_type_every') ?? $top_head_config['content_type'], 'every');
+
 
     $form['everything_settings']['everything_settings_sources'] = [
       '#type' => 'textarea',
@@ -166,6 +186,18 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
     // Get general configs.
     $config = $this->config('google_news_api.settings');
 
+    $values = $form_state->getValues();
+    $top_comparison = [];
+    $every_comparison = [];
+    foreach ($values as $key => $value) {
+      if (str_contains($key, 'top_comparison')) {
+        $top_comparison[substr($key, 0,-15)] = $value;
+      }
+      if (str_contains($key, 'every_comparison')) {
+        $every_comparison[substr($key, 0,-17)] = $value;
+      }
+    }
+
     // Setting Google API key config.
     $config->set('google_news_api_key', $form_state->getValue('google_news_api_key'));
 
@@ -175,6 +207,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       'categories'=> $form_state->getValue('top_head_settings_categories'),
       'sources'=> $form_state->getValue('top_head_settings_sources'),
       'content_type'=> $form_state->getValue('content_type_top'),
+      'comparison' => $top_comparison,
     ];
     $config->set('top_head_settings', $top_head_config);
 
@@ -186,6 +219,7 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
       'exclude_domains'=> $form_state->getValue('everything_settings_exclude_domains'),
       'languages'=> $form_state->getValue('everything_settings_languages'),
       'content_type'=> $form_state->getValue('content_type_every'),
+      'comparison' => $every_comparison,
     ];
     $config->set('everything_settings', $everything_config);
 
@@ -224,33 +258,32 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
   }
 
   public function showContentTypesFields(array &$form, FormStateInterface $form_state) {
-//    $all_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $form_state->getValue('content_type_top'));
-//    $fields = [];
-//    $options = Settings::get('top_headline_news_keys');
-//    foreach ($all_fields as $field) {
-//      if ($field instanceof FieldConfig) {
-//        $fields[] = $field;
-//      }
-//    }
-//    foreach ($fields as $field) {
-//      if ($field instanceof FieldConfig) {
-//        $form['top_head_settings']['container'][$field->get('field_name') . '_top'] = [
-//          '#type' => 'select',
-//          '#title' => $field->label(),
-//          '#default_value' => null,
-//          '#options' => $options,
-//          '#empty_option' => $this->t('- None -'),
-//        ];
-//      }
-//
-//    }
     return $form['top_head_settings']['container'];
   }
 
-  private function getComparison(mixed $content_type): array {
+  public function showContentTypesFields2(array &$form, FormStateInterface $form_state) {
+    return $form['everything_settings']['container'];
+  }
+
+  /**
+   * @param mixed $content_type
+   * @param string $news_type
+   *  Every or top only.
+   *
+   * @return array
+   */
+  private function getComparison(mixed $content_type, string $news_type): array {
     if ($content_type == null) {
       $content_type = 'article';
     }
+    $config = [];
+    if ($news_type == 'top') {
+      $config = $this->config('google_news_api.settings')->get('top_head_settings');
+    }
+    if ($news_type == 'every') {
+      $config = $this->config('google_news_api.settings')->get('everything_settings');
+    }
+
     $all_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $content_type);
     $fields = [];
     $result = [];
@@ -262,10 +295,11 @@ class GoogleNewsApiSettingsForm extends ConfigFormBase {
     }
     foreach ($fields as $field) {
       if ($field instanceof FieldConfig) {
-        $result[$field->get('field_name') . '_top'] = [
+        $result[$field->get('field_name') . '_' . $news_type . '_comparison'] = [
           '#type' => 'select',
-          '#title' => $field->label(),
-          '#default_value' => null,
+          '#title' => $this->t('Field: @field_name (@field_type)',
+            ['@field_name' => $field->label(), '@field_type' => $field->get('field_type')]),
+          '#default_value' => $config['comparison'] ? $config['comparison'][$field->get('field_name')] : null,
           '#options' => $options,
           '#empty_option' => $this->t('- None -'),
         ];

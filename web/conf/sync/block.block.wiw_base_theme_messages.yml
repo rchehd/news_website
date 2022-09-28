@@ -1,0 +1,22 @@
+uuid: ebb38b02-530e-4041-8eec-edae592606cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_base_theme
+_core:
+  default_config_hash: GLabjFjnXgdY-8X4QaAZvGvqhpRLi3ak6ujNGUSR8eU
+id: wiw_base_theme_messages
+theme: wiw_base_theme
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }

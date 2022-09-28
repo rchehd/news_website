@@ -1,0 +1,25 @@
+uuid: aa7d301c-0630-4492-aca6-c11af6f39fdf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_base_theme
+_core:
+  default_config_hash: NdmTyETWHmeEW8hKwzosvD3bE5wl036-GVR8oSt3Bgw
+id: wiw_base_theme_branding
+theme: wiw_base_theme
+region: nav_branding
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

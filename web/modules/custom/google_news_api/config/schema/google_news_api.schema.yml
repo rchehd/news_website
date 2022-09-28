@@ -21,6 +21,9 @@ google_news_api.settings:
         content_type:
           type: string
           label: 'Name of content type for Top Headlines news.'
+        comparison:
+          type: sequence
+          label: 'Comparison with content type field.'
     everything_settings:
       type: mapping
       label: 'Google News Everything news settings'
@@ -43,3 +46,6 @@ google_news_api.settings:
         content_type:
           type: string
           label: 'Name of content type for Everything news.'
+        comparison:
+          type: sequence
+          label: 'Comparison with content type field.'
