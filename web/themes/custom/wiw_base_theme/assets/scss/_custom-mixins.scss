@@ -1,6 +1,0 @@
-@mixin transition($type: opacity, $duration: 0.2s, $kind: ease-in-out) {
-  -moz-transition: $type;
-  -o-transition: $type;
-  -webkit-transition: $type;
-  transition: $type $duration $kind;
-}

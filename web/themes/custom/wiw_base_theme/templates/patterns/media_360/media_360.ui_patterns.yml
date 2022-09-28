@@ -1,9 +1,0 @@
-media_360:
-  label: Media 360
-  description: Provide 3d photo
-  fields:
-    media_id:
-      type: text
-      label: Media ID
-      description: The ID of media folder.
-      preview: Well done!
