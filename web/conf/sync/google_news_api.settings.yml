@@ -22,14 +22,14 @@ everything_settings:
   languages: 'en, ua'
   content_type: google_news
   comparison:
-    body: source
+    body: content
     field_author: author
     field_banner: ''
-    field_description: ''
-    field_external_url: ''
-    field_published_at: ''
-    field_remote_image: ''
-    field_source_name: ''
+    field_description: description
+    field_external_url: url
+    field_published_at: publishedAt
+    field_remote_image: urlToImage
+    field_source_name: source
     field_type: ''
 _core:
   default_config_hash: 1DtI4GWOoaARFacpwf9W1Afx697peBE61azi3pQAZic

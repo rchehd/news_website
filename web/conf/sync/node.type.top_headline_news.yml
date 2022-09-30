@@ -1,0 +1,18 @@
+uuid: fbb48574-50f2-4423-904f-7c0a389134a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Top Headline news'
+type: top_headline_news
+description: 'Content type for Google Top Headline news'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

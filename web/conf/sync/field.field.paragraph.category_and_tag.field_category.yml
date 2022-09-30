@@ -1,0 +1,29 @@
+uuid: 1bbf99ea-edbb-4f31-a738-22bf3e304794
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_category
+    - paragraphs.paragraphs_type.category_and_tag
+    - taxonomy.vocabulary.news_category
+id: paragraph.category_and_tag.field_category
+field_name: field_category
+entity_type: paragraph
+bundle: category_and_tag
+label: Category
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      news_category: news_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

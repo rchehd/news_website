@@ -1,0 +1,22 @@
+uuid: a0f010a9-c1ec-4068-94f9-b398b204e9f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.top_headline_news
+id: node.top_headline_news.status
+field_name: status
+entity_type: node
+bundle: top_headline_news
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

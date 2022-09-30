@@ -1,0 +1,10 @@
+uuid: 989e0c39-0216-490e-a944-b48dbb40536d
+langcode: en
+status: true
+dependencies: {  }
+id: category_and_tag
+label: 'Category and tag'
+icon_uuid: null
+icon_default: null
+description: 'Category selector and tag fileld for content of news'
+behavior_plugins: {  }

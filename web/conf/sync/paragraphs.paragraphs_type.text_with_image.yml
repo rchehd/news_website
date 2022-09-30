@@ -1,0 +1,10 @@
+uuid: c7e36964-8a49-4cbd-9e09-366865d4a4e7
+langcode: en
+status: true
+dependencies: {  }
+id: text_with_image
+label: 'Text with image'
+icon_uuid: null
+icon_default: null
+description: 'Block with text and image'
+behavior_plugins: {  }

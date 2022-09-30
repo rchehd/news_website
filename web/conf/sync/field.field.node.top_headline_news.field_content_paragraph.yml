@@ -1,0 +1,31 @@
+uuid: 4a0fc204-b248-42e8-8932-b99ef302ba69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_paragraph
+    - node.type.top_headline_news
+    - paragraphs.paragraphs_type.text_with_image
+  module:
+    - entity_reference_revisions
+id: node.top_headline_news.field_content_paragraph
+field_name: field_content_paragraph
+entity_type: node
+bundle: top_headline_news
+label: 'Content paragraph'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text_with_image: text_with_image
+    negate: 0
+    target_bundles_drag_drop:
+      text_with_image:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

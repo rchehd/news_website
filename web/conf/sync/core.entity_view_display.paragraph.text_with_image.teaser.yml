@@ -1,0 +1,26 @@
+uuid: 3a4296b5-c779-473a-9066-06519ccc4aff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser
+    - field.field.paragraph.text_with_image.field_image
+    - field.field.paragraph.text_with_image.field_text
+    - paragraphs.paragraphs_type.text_with_image
+  module:
+    - text
+id: paragraph.text_with_image.teaser
+targetEntityType: paragraph
+bundle: text_with_image
+mode: teaser
+content:
+  field_text:
+    type: text_summary_or_trimmed
+    label: above
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image: true

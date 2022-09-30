@@ -36,6 +36,7 @@
         "drupal/admin_toolbar": "^3.1",
         "drupal/adminimal_theme": "^1.6",
         "drupal/better_search": "^1.6",
+        "drupal/blazy": "^2.13",
         "drupal/bootstrap5": "^2.0",
         "drupal/business_responsive_theme": "^2.0",
         "drupal/config_inspector": "^2.1",
@@ -46,7 +47,9 @@
         "drupal/examples": "^3.0",
         "drupal/fontawesome": "^2.23",
         "drupal/image_url_formatter": "^1.0",
+        "drupal/media_gallery": "^2.0",
         "drupal/module_filter": "^3.2",
+        "drupal/paragraphs": "^1.15",
         "drupal/remote_image": "^2.0",
         "drupal/ultimate_cron": "^2.0@alpha",
         "jcobhams/newsapi": "^1.0"

@@ -1,0 +1,29 @@
+uuid: 051216ea-0957-4a1f-a6a5-680da7c7f930
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_banner
+    - media.type.image
+    - node.type.top_headline_news
+id: node.top_headline_news.field_image_banner
+field_name: field_image_banner
+entity_type: node
+bundle: top_headline_news
+label: 'Image banner'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

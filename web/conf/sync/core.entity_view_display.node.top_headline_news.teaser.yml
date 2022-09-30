@@ -1,0 +1,36 @@
+uuid: b141cc45-d27a-4bed-abf9-bd6d6d425eb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.top_headline_news.field_content_paragraph
+    - field.field.node.top_headline_news.field_image_banner
+    - field.field.node.top_headline_news.field_taxonomy
+    - node.type.top_headline_news
+  module:
+    - entity_reference_revisions
+    - user
+id: node.top_headline_news.teaser
+targetEntityType: node
+bundle: top_headline_news
+mode: teaser
+content:
+  field_content_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: teaser
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image_banner: true
+  field_taxonomy: true
+  langcode: true
