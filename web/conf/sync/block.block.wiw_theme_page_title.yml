@@ -1,6 +1,6 @@
 uuid: 7f1ba59b-52d2-4e1a-b227-b056399b3281
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - wiw_theme

@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_taxonomy
     - node.type.top_headline_news
+    - responsive_image.styles.wide
   module:
+    - blazy
     - entity_reference_revisions
     - user
 id: node.top_headline_news.teaser
@@ -18,19 +20,60 @@ mode: teaser
 content:
   field_content_paragraph:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: teaser
       link: ''
     third_party_settings: {  }
     weight: 1
     region: content
-  links:
-    settings: {  }
+  field_image_banner:
+    type: blazy_media
+    label: hidden
+    settings:
+      caption:
+        title: '0'
+        alt: '0'
+      class: ''
+      id: ''
+      image: ''
+      link: ''
+      overlay: ''
+      title: ''
+      vanilla: false
+      layout: ''
+      view_mode: default
+      cache: 0
+      skin: ''
+      lazy: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: wide
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
     third_party_settings: {  }
     weight: 0
     region: content
+  field_taxonomy:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
-  field_image_banner: true
-  field_taxonomy: true
   langcode: true
+  links: true

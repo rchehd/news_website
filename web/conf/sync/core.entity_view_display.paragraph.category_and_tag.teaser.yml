@@ -1,15 +1,16 @@
-uuid: f026dac5-b701-497a-bdb6-f499532f70bd
+uuid: c34e3b62-9f97-4c08-9889-267a74703a1b
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.paragraph.teaser
     - field.field.paragraph.category_and_tag.field_category
     - field.field.paragraph.category_and_tag.field_tag
     - paragraphs.paragraphs_type.category_and_tag
-id: paragraph.category_and_tag.default
+id: paragraph.category_and_tag.teaser
 targetEntityType: paragraph
 bundle: category_and_tag
-mode: default
+mode: teaser
 content:
   field_category:
     type: entity_reference_label
@@ -19,12 +20,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_tag:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-hidden: {  }
+hidden:
+  field_tag: true
