@@ -2,7 +2,7 @@ name: 'World in word theme'
 type: theme
 description: 'World in word theme subtheme based on Bootstrap 5 theme.'
 core_version_requirement: '^9.2 || ^10'
-'base theme': bootstrap5
+base theme: bootstrap5
 libraries:
   - wiw_theme/global-styling
 ckeditor5-stylesheets:

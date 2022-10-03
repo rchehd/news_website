@@ -38,6 +38,7 @@
         "drupal/background_image": "^2.0",
         "drupal/better_search": "^1.6",
         "drupal/blazy": "^2.13",
+        "drupal/bootstrap": "^3.25",
         "drupal/bootstrap5": "^2.0",
         "drupal/business_responsive_theme": "^2.0",
         "drupal/config_inspector": "^2.1",
