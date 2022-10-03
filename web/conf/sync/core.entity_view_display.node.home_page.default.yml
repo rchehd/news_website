@@ -1,0 +1,25 @@
+uuid: eda81269-6d44-4641-ae5c-88998864e4f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.home_page.field_greeting
+    - node.type.home_page
+  module:
+    - text
+    - user
+id: node.home_page.default
+targetEntityType: node
+bundle: home_page
+mode: default
+content:
+  field_greeting:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  links: true
