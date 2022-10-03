@@ -1,0 +1,24 @@
+uuid: 6538bc02-5c06-4d55-9a6a-63f93360bcd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.s
+    - field.field.paragraph.category_and_tag.field_category
+    - field.field.paragraph.category_and_tag.field_tag
+    - paragraphs.paragraphs_type.category_and_tag
+id: paragraph.category_and_tag.s
+targetEntityType: paragraph
+bundle: category_and_tag
+mode: s
+content:
+  field_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_tag: true

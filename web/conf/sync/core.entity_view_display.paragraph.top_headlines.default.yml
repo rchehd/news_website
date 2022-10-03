@@ -1,0 +1,22 @@
+uuid: 27d03bf1-d78b-4c2a-b810-6940ec2eee9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.top_headlines.field_top_headline_news
+    - paragraphs.paragraphs_type.top_headlines
+  module:
+    - block_field
+id: paragraph.top_headlines.default
+targetEntityType: paragraph
+bundle: top_headlines
+mode: default
+content:
+  field_top_headline_news:
+    type: block_field
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

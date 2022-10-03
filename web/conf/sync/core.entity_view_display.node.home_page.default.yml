@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.home_page.field_content
     - field.field.node.home_page.field_greeting
     - node.type.home_page
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.home_page.default
@@ -13,6 +15,15 @@ targetEntityType: node
 bundle: home_page
 mode: default
 content:
+  field_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
   field_greeting:
     type: text_default
     label: hidden

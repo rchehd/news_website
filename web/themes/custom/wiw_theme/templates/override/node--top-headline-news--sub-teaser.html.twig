@@ -84,7 +84,7 @@
       <a class="image-link" href="{{ url }}">
         {{ content.field_image_banner }}
         <div class="image-text">
-          <div class="image-title">
+          <div class="image-title-sub-teaser">
             {{ title_prefix }}
             {% if label and not page %}
               <h2{{ title_attributes }}>{{ label }}</h2>
@@ -92,14 +92,13 @@
             {{ title_suffix }}
           </div>
           {% if content.field_content_paragraph %}
-            <div class="top-news-summary">{{ content.field_content_paragraph }}</div>
+          <div class="top-news-summary">{{ content.field_content_paragraph }}</div>
           {% endif %}
           {% if content.field_taxonomy %}
-            <div class="top-news-tag">{{ content.field_taxonomy }}</div>
+          <div class="top-news-tag">{{ content.field_taxonomy }}</div>
           {% endif %}
         </div>
       </a>
     </div>
   </div>
 </article>
-

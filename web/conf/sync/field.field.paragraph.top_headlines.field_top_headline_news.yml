@@ -1,0 +1,31 @@
+uuid: 5b73073c-f001-4ba6-bce0-cfa7452a0d1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_top_headline_news
+    - paragraphs.paragraphs_type.top_headlines
+  module:
+    - block_field
+id: paragraph.top_headlines.field_top_headline_news
+field_name: field_top_headline_news
+entity_type: paragraph
+bundle: top_headlines
+label: 'Top headline news'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    plugin_id: top_headlines_block
+    settings:
+      provider: news_core
+      label: 'Top Headlines Block'
+      label_display: visible
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      top_headlines_block: top_headlines_block
+field_type: block_field

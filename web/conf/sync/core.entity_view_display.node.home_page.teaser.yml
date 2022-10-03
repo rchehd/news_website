@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.home_page.field_content
     - field.field.node.home_page.field_greeting
     - node.type.home_page
   module:
@@ -19,5 +20,6 @@ content:
     weight: 100
     region: content
 hidden:
+  field_content: true
   field_greeting: true
   langcode: true

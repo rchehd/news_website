@@ -8,6 +8,7 @@ module:
   blazy: 0
   block: 0
   block_content: 0
+  block_field: 0
   breakpoint: 0
   ckeditor: 0
   ckeditor5: 0
@@ -42,6 +43,7 @@ module:
   menu_ui: 0
   module_filter: 0
   mysql: 0
+  news_core: 0
   news_search: 0
   node: 0
   options: 0

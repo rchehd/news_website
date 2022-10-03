@@ -1,0 +1,26 @@
+uuid: b5f3de5a-9a93-4336-8686-337c44ac395b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.s
+    - field.field.paragraph.text_with_image.field_image
+    - field.field.paragraph.text_with_image.field_text
+    - paragraphs.paragraphs_type.text_with_image
+  module:
+    - text
+id: paragraph.text_with_image.s
+targetEntityType: paragraph
+bundle: text_with_image
+mode: s
+content:
+  field_text:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image: true

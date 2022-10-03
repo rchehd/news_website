@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Twig template for render content
+ */
+function news_core_theme($existing, $type, $theme, $path) {
+
+  return [
+    'top_headlines' => [
+      'variables' => [
+        'list' => [],
+      ],
+    ],
+  ];
+}

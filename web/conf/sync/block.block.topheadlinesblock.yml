@@ -1,0 +1,25 @@
+uuid: 0b2f6a68-2c6d-4783-aac0-7c38bbd82a20
+langcode: en
+status: false
+dependencies:
+  module:
+    - news_core
+    - system
+  theme:
+    - wiw_theme
+id: topheadlinesblock
+theme: wiw_theme
+region: content
+weight: 0
+provider: null
+plugin: top_headlines_block
+settings:
+  id: top_headlines_block
+  label: 'Top Headlines Block'
+  label_display: '0'
+  provider: news_core
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /home

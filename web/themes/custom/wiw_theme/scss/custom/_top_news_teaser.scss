@@ -13,6 +13,7 @@
 
 .image-title h2 {
   line-height: 1.2;
+  //font-size: 2rem;
   color: white;
 }
 
@@ -20,6 +21,7 @@
   color: #d3d3d3;
   text-decoration: none;
   margin: 0.5rem 0 0;
+  //font-size: .875rem;
 }
 
 .top-news-tag{
@@ -34,14 +36,13 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  font-size: .875rem;
-
 }
 
 .top-news-tag a {
   color: #d3d3d3;
   border-left: thin solid #ff0000;
   padding-left: 0.5rem;
+  //font-size: .875rem;
 }
 
 .node__content a {
@@ -62,7 +63,9 @@
   text-decoration: underline;
 }
 
-.node--view-mode-teaser {
-  margin: 5px;
+.image-title-sub-teaser h2 {
+  font-size: 1.25rem;
+  color: white;
 }
+
 

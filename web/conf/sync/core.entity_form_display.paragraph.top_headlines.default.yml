@@ -1,0 +1,26 @@
+uuid: 03d811eb-1b91-48bc-9cf9-b015977f9915
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.top_headlines.field_top_headline_news
+    - paragraphs.paragraphs_type.top_headlines
+  module:
+    - block_field
+id: paragraph.top_headlines.default
+targetEntityType: paragraph
+bundle: top_headlines
+mode: default
+content:
+  field_top_headline_news:
+    type: block_field_default
+    weight: 0
+    region: content
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

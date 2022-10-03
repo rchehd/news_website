@@ -1,0 +1,10 @@
+uuid: 119a7f4e-34c7-458e-bc86-8275767f3466
+langcode: en
+status: true
+dependencies: {  }
+id: top_headlines
+label: 'Top Headlines'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

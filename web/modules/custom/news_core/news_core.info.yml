@@ -1,0 +1,7 @@
+name: News Core Module
+type: module
+description: Provides News Core.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+configure: news_core_settings
