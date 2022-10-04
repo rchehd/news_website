@@ -144,3 +144,12 @@ li {
 .site-logo {
   margin-left: 16px;
 }
+.top-headline-block-head {
+  display: flex;
+  position: relative;
+}
+
+.top-headline-block-timer {
+  position: absolute;
+  right: 0;
+}

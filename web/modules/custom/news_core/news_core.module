@@ -14,3 +14,7 @@ function news_core_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+function news_core_preprocess_block__top_headlines_block(&$variables): void {
+  $variables['timer'] = date('l', time()) . ', ' . date('j F', time());
+}
