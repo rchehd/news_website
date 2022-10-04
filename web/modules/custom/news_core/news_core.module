@@ -12,7 +12,13 @@ function news_core_theme($existing, $type, $theme, $path) {
         'list' => [],
       ],
     ],
+    'everything' => [
+      'variables' => [
+        'list' => [],
+      ],
+    ],
   ];
+
 }
 
 function news_core_preprocess_block__top_headlines_block(&$variables): void {

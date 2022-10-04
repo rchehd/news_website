@@ -1,0 +1,21 @@
+uuid: a698c3dc-2750-4929-86a5-f49e05880b54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_type
+    - node.type.top_headline_news
+  module:
+    - options
+id: node.top_headline_news.field_news_type
+field_name: field_news_type
+entity_type: node
+bundle: top_headline_news
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

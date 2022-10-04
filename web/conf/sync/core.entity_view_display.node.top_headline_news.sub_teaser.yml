@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.sub_teaser
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
+    - field.field.node.top_headline_news.field_news_type
     - field.field.node.top_headline_news.field_taxonomy
     - node.type.top_headline_news
     - responsive_image.styles.wide
@@ -67,5 +68,6 @@ content:
     region: content
 hidden:
   field_content_paragraph: true
+  field_news_type: true
   langcode: true
   links: true

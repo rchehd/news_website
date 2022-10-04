@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
+    - field.field.node.top_headline_news.field_news_type
     - field.field.node.top_headline_news.field_taxonomy
     - node.type.top_headline_news
   module:
@@ -46,6 +47,12 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_news_type:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_taxonomy:
     type: paragraphs

@@ -8,21 +8,20 @@ use Drupal\Core\Block\BlockBase;
  * Provides a Top Headlines Block.
  *
  * @Block(
- *   id = "top_headlines_block",
- *   admin_label = @Translation("Top Headlines Block"),
+ *   id = "everything_news_block",
+ *   admin_label = @Translation("Everything News Block"),
  *   category = @Translation("Content block"),
  * )
  */
-class TopHeadlinesBlock extends BlockBase {
+class EverythingNewsBlock extends BlockBase {
 
   public function build(): array {
     $query = \Drupal::entityQuery('node');
     $entity_ids = $query
       ->condition('type', 'top_headline_news', '=')
-      ->condition('field_news_type', 'top', '=')
-      ->range(0, 5)
+      ->condition('field_news_type', 'every', '=')
+      ->range(0, 8)
       ->execute();
-
 
     $entity_type_manager = \Drupal::entityTypeManager();
     $node_view_builder   = $entity_type_manager->getViewBuilder('node');
@@ -42,7 +41,7 @@ class TopHeadlinesBlock extends BlockBase {
       '#theme'    => 'top_headlines',
       '#list'     => $list,
       '#attached' => [
-        'library' => ['news_core/top_headline'],
+        'library' => ['news_core/everything'],
       ],
     ];
   }
