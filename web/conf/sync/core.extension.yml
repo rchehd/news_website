@@ -56,8 +56,10 @@ module:
   search: 0
   shortcut: 0
   standard: 0
+  superfish: 0
   system: 0
   taxonomy: 0
+  taxonomy_menu: 0
   text: 0
   toolbar: 0
   tour: 0
@@ -65,7 +67,9 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  fontyourface: 1
   content_translation: 10
+  google_fonts_api: 10
   views: 10
   paragraphs: 11
 theme:

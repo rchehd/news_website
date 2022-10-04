@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: TghDxAeHu4gER0JZhzPbMawpRgxggVsIu54oyTeaJOo
+load_all_enabled_fonts: 1
+enabled_fonts:
+  - 'https://www.google.com/webfonts/family?family=Arya&subset=devanagari#700'
+  - 'https://www.google.com/webfonts/family?family=Merriweather&subset=cyrillic#700'
+  - 'https://www.google.com/webfonts/family?family=Merriweather&subset=cyrillic#300'
+load_on_themes: {  }

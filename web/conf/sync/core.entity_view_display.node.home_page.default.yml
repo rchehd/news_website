@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.home_page.field_content
-    - field.field.node.home_page.field_greeting
     - node.type.home_page
   module:
     - entity_reference_revisions
-    - text
     - user
 id: node.home_page.default
 targetEntityType: node
@@ -23,13 +21,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_greeting:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
 hidden:
   langcode: true

@@ -19,6 +19,7 @@ li {
   display: list-item;
   text-align: -webkit-match-parent;
 }
+
 @media screen and (min-width: 1200px) {
   .item-0 {
     box-sizing: border-box;
@@ -114,14 +115,6 @@ li {
   }
 }
 
-/*.parent .item-0:hover {*/
-/*  transform: scale(1.02);*/
-/*  transition-timing-function: ease-in;*/
-/*  transition: 0.2s;*/
-/*}*/
-
-
-
 .parent li {
   -webkit-filter: brightness(85%);
   -webkit-transition: all 1s ease;
@@ -135,4 +128,19 @@ li {
   -webkit-filter: brightness(110%);
 }
 
+.block-top-headlines-block h2 {
+  padding-left: 8px;
+  padding-top: 1rem;
+  color: #8c8c8c;
+  font-weight: normal;
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
 
+.site-logo {
+  margin-left: 16px;
+}

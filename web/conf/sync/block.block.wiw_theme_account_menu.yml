@@ -12,8 +12,8 @@ _core:
   default_config_hash: 7Z93gRM9QDuzV4gDc6TUaHcNLyKQi_9k2QQgJ8lmMlU
 id: wiw_theme_account_menu
 theme: wiw_theme
-region: nav_additional
-weight: -6
+region: nav_branding
+weight: -5
 provider: null
 plugin: 'system_menu_block:account'
 settings:

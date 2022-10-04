@@ -1,0 +1,31 @@
+uuid: 0a03dc32-50c7-4598-a34c-87bf0b781176
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.max_1300x1300
+    - image.style.max_650x650
+    - image.style.wide
+  theme:
+    - wiw_theme
+id: custom
+label: Custom
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - max_650x650
+    breakpoint_id: wiw_theme.screen.lg-max
+    multiplier: 2x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - max_1300x1300
+    breakpoint_id: wiw_theme.screen.md-max
+    multiplier: 1x
+breakpoint_group: wiw_theme.screen
+fallback_image_style: wide

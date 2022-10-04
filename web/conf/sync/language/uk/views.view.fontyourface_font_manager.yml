@@ -1,0 +1,39 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Застосувати
+          reset_button_label: Скинути
+          exposed_sorts_label: 'Впорядкувати за'
+          sort_asc_label: Зрост
+          sort_desc_label: Спад
+      pager:
+        options:
+          tags:
+            previous: '‹ Попередня'
+            next: 'Наступна ›'
+            first: '« Перша'
+            last: 'Остання »'
+          expose:
+            items_per_page_label: 'Елементів на сторінку'
+            items_per_page_options_all_label: '- Усе -'
+            offset_label: Зміщення
+      fields:
+        name:
+          separator: ', '
+        pid:
+          separator: ', '
+        css_style:
+          separator: ', '
+        operations:
+          label: Операції
+      filters:
+        name:
+          expose:
+            label: 'Назва (ім''я)'
+        field_tags_target_id:
+          expose:
+            label: Теґи
+  page_1:
+    display_title: Сторінка

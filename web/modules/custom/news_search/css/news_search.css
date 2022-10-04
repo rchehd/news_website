@@ -1,6 +1,6 @@
-.search-block-form {
-  margin-left: 20px;
-}
+/*.search-block-form {*/
+/*  margin-left: 20px;*/
+/*}*/
 
 .search-box{
   width: fit-content;
@@ -67,7 +67,7 @@ i.news-search {
   cursor: pointer;
   border-radius: 50%;
   position: relative;
-  right: 32.5px;
+  right: 15px;
   top: 7.5px;
   color:black ;
   background-color:transparent;

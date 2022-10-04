@@ -1,0 +1,16 @@
+uuid: a55946b8-f9da-4664-9dfc-edb9e5ad1007
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+    - taxonomy.vocabulary.news_category
+id: category_menu
+label: 'Category menu'
+vocabulary: news_category
+menu: main
+expanded: true
+depth: 0
+menu_parent: 'admin:'
+description_field_name: ''
+use_term_weight_order: true

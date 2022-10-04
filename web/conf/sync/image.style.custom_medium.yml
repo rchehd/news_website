@@ -1,0 +1,15 @@
+uuid: ff21c6d7-a83a-4f5e-91a5-1dc087110050
+langcode: en
+status: true
+dependencies: {  }
+name: custom_medium
+label: 'Top Headline Additional Small'
+effects:
+  da5e24b0-3ce0-410b-a52d-3a47f760f85c:
+    uuid: da5e24b0-3ce0-410b-a52d-3a47f760f85c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 304
+      height: 171
+      anchor: center-center

@@ -1,0 +1,12 @@
+uuid: d7a39b05-d518-4375-aacc-1252f0c6e407
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+font_url: 'https://www.google.com/webfonts/family?family=Merriweather&subset=cyrillic#300'
+fallback: ''
+selectors: '.fontyourface p, .fontyourface div'
+theme: wiw_theme
+style: null
+weight: null
