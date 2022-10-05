@@ -1,0 +1,13 @@
+{% for cat in categories %}
+  {% if list[cat.id] %}
+    <div class="ever-block">
+      {{ cat.taxonomy_term }}
+      <ul class="ever-list">
+        {% for item in list[cat.id] %}
+        <li class="ever-item">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endfor %}
+

@@ -1,0 +1,15 @@
+uuid: 70d14953-4e35-4083-954d-499d621953c5
+langcode: en
+status: true
+dependencies: {  }
+name: sub
+label: Sub-teaser
+effects:
+  6a6b61f7-3a6b-4aa9-b31e-9da7ef2f9416:
+    uuid: 6a6b61f7-3a6b-4aa9-b31e-9da7ef2f9416
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 900
+      anchor: center-center

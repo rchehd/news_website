@@ -1,0 +1,33 @@
+uuid: 73d14b2b-b3ad-459c-a5ed-295a82fd2c1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category
+    - node.type.top_headline_news
+    - taxonomy.vocabulary.news_category
+  content:
+    - 'taxonomy_term:news_category:7be087f8-7b2e-48f4-a20f-3d157be48e39'
+id: node.top_headline_news.field_category
+field_name: field_category
+entity_type: node
+bundle: top_headline_news
+label: Category
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 7be087f8-7b2e-48f4-a20f-3d157be48e39
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      news_category: news_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

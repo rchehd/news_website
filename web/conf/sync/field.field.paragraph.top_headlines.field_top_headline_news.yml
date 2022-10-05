@@ -27,5 +27,6 @@ settings:
   selection: blocks
   selection_settings:
     plugin_ids:
+      everything_news_block: everything_news_block
       top_headlines_block: top_headlines_block
 field_type: block_field

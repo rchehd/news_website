@@ -2,5 +2,11 @@ top_headline:
   version: 1.x
   css:
     theme:
-      css/style.css: {}
+      css/top_headline.css: {}
+
+everything:
+  version: 1.x
+  css:
+    theme:
+      css/everything.css: { }
 

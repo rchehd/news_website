@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c50979ef0c6b7d999df9afc6e1ec98a",
+    "content-hash": "cd8ae64343ecc71473ebcef3e4a3d977",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2803,6 +2803,56 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/superfish",
                 "issues": "https://www.drupal.org/project/superfish"
+            }
+        },
+        {
+            "name": "drupal/taxonomy_class",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/taxonomy_class.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_class-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "78d14ceef02eca0032aac6c8314d1f3033616b95"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.1",
+                    "datestamp": "1654620298",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Adds classes specific to Taxonomy term.",
+            "homepage": "https://www.drupal.org/project/taxonomy_class",
+            "keywords": [
+                "Drupal",
+                "Taxonomy Class"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/taxonomy_class",
+                "issues": "https://www.drupal.org/project/issues/taxonomy_class"
             }
         },
         {

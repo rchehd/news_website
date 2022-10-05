@@ -1,0 +1,24 @@
+uuid: 73a119c1-66f5-46cf-b149-518af19ac1f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - node.type.home_page
+  module:
+    - block_field
+id: node.home_page.field_body
+field_name: field_body
+entity_type: node
+bundle: home_page
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field

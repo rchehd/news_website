@@ -56,6 +56,7 @@
         "drupal/paragraphs": "^1.15",
         "drupal/remote_image": "^2.0",
         "drupal/superfish": "^1.4",
+        "drupal/taxonomy_class": "^1.0",
         "drupal/taxonomy_menu": "^3.5",
         "drupal/ultimate_cron": "^2.0@alpha",
         "jcobhams/newsapi": "^1.0"

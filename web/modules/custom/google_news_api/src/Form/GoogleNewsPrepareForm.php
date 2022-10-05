@@ -152,6 +152,7 @@ class GoogleNewsPrepareForm extends FormBase {
           $form['news_form']['container']['table'] = [
             '#type' => 'table',
             '#header' => [
+              'id' => $this->t('ID'),
               'source' => $this->t('Source'),
               'title' => $this->t('Title'),
               'url' => $this->t('URL'),
@@ -312,6 +313,7 @@ class GoogleNewsPrepareForm extends FormBase {
           $form['news_form']['container2']['table'] = [
             '#type' => 'table',
             '#header' => [
+              'id' => $this->t('ID'),
               'source' => $this->t('Source'),
               'title' => $this->t('Title'),
               'url' => $this->t('URL'),
@@ -385,7 +387,8 @@ class GoogleNewsPrepareForm extends FormBase {
       $form_state->getValue('sources') != '' ? $form_state->getValue('sources') : NULL,
       $form_state->getValue('number')
     );
-    $tempstore->set('data', $this->generateDataForTable($data, $response, $form_state->getValue('number')));
+    $tempstore->set('data', $this->generateDataForTable($data, $response, $form_state->getValue('number'), 'top'));
+    $tempstore->set('data2', array_slice($response['articles'], 0, $form_state->getValue('page_size')));
     $form_state->setRebuild();
   }
 
@@ -396,6 +399,7 @@ class GoogleNewsPrepareForm extends FormBase {
   public function clearTopNews(array &$form, FormStateInterface $form_state) {
     $tempstore = \Drupal::service('tempstore.private')->get('top');
     $tempstore->delete('data');
+    $tempstore->delete('data2');
     $form_state->setRebuild();
   }
 
@@ -418,7 +422,8 @@ class GoogleNewsPrepareForm extends FormBase {
       $form_state->getValue('sort_by'),
       $form_state->getValue('page_size'),
     );
-    $tempstore->set('data', $this->generateDataForTable($data, $response, $form_state->getValue('page_size')));
+    $tempstore->set('data', $this->generateDataForTable($data, $response, $form_state->getValue('page_size'), 'every'));
+    $tempstore->set('data2', array_slice($response['articles'], 0, $form_state->getValue('page_size')));
     $form_state->setRebuild();
 
   }
@@ -426,17 +431,21 @@ class GoogleNewsPrepareForm extends FormBase {
   public function clearEverythingNews(array &$form, FormStateInterface $form_state) {
     $tempstore = \Drupal::service('tempstore.private')->get('every');
     $tempstore->delete('data');
+    $tempstore->delete('data2');
     $form_state->setRebuild();
   }
 
-  private function generateDataForTable(array &$data, array $request, $length): array {
+  private function generateDataForTable(array &$data, array $request, $length, $type): array {
     $articles = array_slice($request['articles'], 0, $length);
+    $i = 0;
     foreach ($articles as $article) {
       $data[] = [
+        'id' => $i,
         'source' => $article['source']['name'],
         'title' => Markup::create('<a href="' . $article['url'] . '" target="_blank">' . $article['title']  . '</a>'),
-        'url' => Markup::create('<a href="' . $article['url'] . '" target="_blank">test</a>')
+        'url' => Markup::create('<a href="/news/create/' . $type . '/' . $i .' " target="_blank">' . $this->t('Create article') . '</a>')
       ];
+      $i++;
     }
     return $data;
   }

@@ -15,6 +15,7 @@ function news_core_theme($existing, $type, $theme, $path) {
     'everything' => [
       'variables' => [
         'list' => [],
+        'categories' => [],
       ],
     ],
   ];

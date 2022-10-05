@@ -153,3 +153,15 @@ li {
   position: absolute;
   right: 8px;
 }
+
+.node__content .field--name-field-category a {
+  color: #d3d3d3;
+  padding-left: 0.5rem;
+  font-size: .875rem;
+}
+.node__content .field--name-field-category a:hover {
+  color: white !important;
+}
+.field--name-field-category {
+  margin-top: 0.75rem;
+}

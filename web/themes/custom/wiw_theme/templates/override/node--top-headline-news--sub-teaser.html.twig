@@ -94,11 +94,16 @@
           {% if content.field_content_paragraph %}
           <div class="top-news-summary">{{ content.field_content_paragraph }}</div>
           {% endif %}
-          {% if content.field_taxonomy %}
-          <div class="top-news-tag">{{ content.field_taxonomy }}</div>
+          {% if content.field_category %}
+          <div class="category-{{ content.field_category[0]['#title']|lower }}">{{ content.field_category }}</div>
           {% endif %}
         </div>
       </a>
     </div>
   </div>
 </article>
+{#{{ dump(content.field_category|keys) }}#}
+{#{{ dump(content.field_category[0]['#title']) }}#}
+{#{% for keys in content.field_category %}#}
+{#{{ dump(keys) }}#}
+{#{% endfor %}#}
