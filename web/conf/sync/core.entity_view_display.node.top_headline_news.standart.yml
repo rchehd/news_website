@@ -1,22 +1,24 @@
-uuid: b3f40f25-bc83-4391-a263-8cb1313a16ea
+uuid: e1a662d0-ccba-4e94-9be5-0dbc4153c7c1
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.standart
     - field.field.node.top_headline_news.field_category
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_news_type
     - field.field.node.top_headline_news.field_tag
+    - image.style.standart
     - node.type.top_headline_news
   module:
     - blazy
     - entity_reference_revisions
     - user
-id: node.top_headline_news.default
+id: node.top_headline_news.standart
 targetEntityType: node
 bundle: top_headline_news
-mode: default
+mode: standart
 content:
   field_category:
     type: entity_reference_label
@@ -30,7 +32,7 @@ content:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:
-      view_mode: default
+      view_mode: teaser
       link: ''
     third_party_settings: {  }
     weight: 1
@@ -63,9 +65,9 @@ content:
       preload: false
       responsive_image_style: ''
       box_style: ''
-      image_style: ''
+      image_style: standart
       media_switch: ''
-      ratio: '16:9'
+      ratio: ''
       thumbnail_style: ''
       grid: ''
       grid_medium: ''

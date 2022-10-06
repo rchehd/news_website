@@ -68,12 +68,6 @@ class GoogleNewsAPIController extends ControllerBase {
       ]
     ]);
 
-    $node->set('field_taxonomy',  [
-      [
-        'target_id' => $category_and_tag_paragraph->id(),
-        'target_revision_id' => $category_and_tag_paragraph->getRevisionId(),
-      ]
-    ]);
     $node->save();
     return $this->redirect('entity.node.edit_form', ['node' => $node->id()]);
   }

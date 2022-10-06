@@ -26,20 +26,24 @@ class EverythingNewsBlock extends BlockBase {
       $entity_ids = $query
         ->condition('type', 'top_headline_news', '=')
         ->condition('field_news_type', 'every', '=')
-        ->range(0, 6)
         ->execute();
 
-      $term_view_builder = $entity_type_manager->getViewBuilder('taxonomy_term');
+     $term_view_builder = $entity_type_manager->getViewBuilder('taxonomy_term');
       $cat[] = [
         'id' => $term->id(),
         'taxonomy_term' => $term_view_builder->view($term),
       ];
       $node_view_builder = $entity_type_manager->getViewBuilder('node');
+      $i = 0;
       foreach ($entity_ids as $id) {
         $node = $entity_type_manager->getStorage('node')->load($id);
         $category = $node->get('field_category')->referencedEntities()[0];
         if ($category->id() == $term->id()) {
-          $list[$term->id()][] = $node_view_builder->view($node, 'sub_teaser');
+          $list[$term->id()][] = $node_view_builder->view($node, 'standart');
+          $i++;
+          if ($i > 3) {
+            break;
+          }
         }
       }
     }

@@ -55,3 +55,7 @@ li {
 .block-everything-news-block {
   margin-top: 25rem;
 }
+
+.ever-list li:hover {
+  -webkit-filter: brightness(110%);
+}

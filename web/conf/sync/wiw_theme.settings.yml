@@ -9,7 +9,7 @@ logo:
   use_default: 0
 favicon:
   mimetype: image/vnd.microsoft.icon
-  path: 'public://favicon.ico'
+  path: themes/custom/wiw_theme/images/source/favicon.ico
   url: /sites/default/files/favicon.ico
   use_default: 0
 b5_top_container: container

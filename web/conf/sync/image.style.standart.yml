@@ -1,0 +1,23 @@
+uuid: e69a671b-34c2-442f-8cfe-2ca0058d1f9a
+langcode: en
+status: true
+dependencies: {  }
+name: standart
+label: Standart
+effects:
+  37467c74-f095-4951-867d-650adb533736:
+    uuid: 37467c74-f095-4951-867d-650adb533736
+    id: image_scale
+    weight: 1
+    data:
+      width: 1600
+      height: 900
+      upscale: true
+  6c926de1-de42-45c6-950e-6bf76da4ec50:
+    uuid: 6c926de1-de42-45c6-950e-6bf76da4ec50
+    id: image_crop
+    weight: 2
+    data:
+      width: 1600
+      height: 900
+      anchor: center-center

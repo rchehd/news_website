@@ -1,6 +1,6 @@
 favicon:
   mimetype: image/vnd.microsoft.icon
-  path: 'public://favicon_0.ico'
+  path: themes/custom/wiw_theme/images/source/favicon.ico
   use_default: false
 features:
   comment_user_picture: true

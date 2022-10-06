@@ -1,0 +1,12 @@
+uuid: ba30a836-d816-4837-a95b-f111faabe9dd
+langcode: en
+status: true
+dependencies: {  }
+label: Standart
+id: standart
+description: ''
+aspect_ratio: '16:9'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

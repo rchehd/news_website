@@ -51,13 +51,6 @@
   text-transform: uppercase;
 }
 
-//.top-news-tag a {
-//  color: #d3d3d3;
-//  //border-left: thin solid #ff0000;
-//  //padding-left: 0.5rem;
-//  //font-size: .875rem;
-//}
-
 .node__content a {
   text-decoration: none !important;
 }
@@ -81,4 +74,16 @@
   color: white;
 }
 
+.every-image-title h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  padding-top: 8px;
+  padding-left: 0px;
+  color: black;
+}
 
+.every-news-summary {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-top: 0.5rem;
+}
