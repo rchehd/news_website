@@ -1,0 +1,5 @@
+<?php
+
+function open_weather_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] =  'open_weather/open_weather';
+}

@@ -48,6 +48,7 @@ module:
   news_core: 0
   news_search: 0
   node: 0
+  open_weather: 0
   options: 0
   page_cache: 0
   path: 0
