@@ -1,5 +1,16 @@
 <?php
 
-function open_weather_preprocess_page(&$variables) {
-  $variables['#attached']['library'][] =  'open_weather/open_weather';
+/**
+ * @file
+ * Twig template for render content
+ */
+function open_weather_theme($existing, $type, $theme, $path): array {
+  return [
+    'open_weather' => [
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+
 }

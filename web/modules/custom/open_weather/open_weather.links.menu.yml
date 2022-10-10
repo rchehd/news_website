@@ -1,0 +1,5 @@
+open_weather:
+  title: 'Open Weather Settings'
+  description: 'Open Weather Settings'
+  route_name: open_weather.settings
+  parent: system.admin_config

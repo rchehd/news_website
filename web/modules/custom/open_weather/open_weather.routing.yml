@@ -1,0 +1,7 @@
+open_weather.settings:
+  path: '/admin/config/open_weather/settings'
+  defaults:
+    _form: '\Drupal\open_weather\Form\OpenWeatherSettingsForm'
+    _title: 'Open Weather'
+  requirements:
+    _permission: 'administer Open Weather'

@@ -1,0 +1,8 @@
+services:
+  open_weather:
+    class: Drupal\open_weather\OpenWeatherService
+    arguments:
+      - '@config.factory'
+      - '@http_client_factory'
+      - '@logger.factory'
+      - '@tempstore.private'

@@ -1,4 +1,5 @@
 open_weather:
   version: 1.x
-  js:
-      js/weather.js: { }
+  css:
+    theme:
+      css/style.css: { }
