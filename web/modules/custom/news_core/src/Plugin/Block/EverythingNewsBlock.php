@@ -26,6 +26,7 @@ class EverythingNewsBlock extends BlockBase {
       $entity_ids = $query
         ->condition('type', 'top_headline_news', '=')
         ->condition('field_news_type', 'every', '=')
+        ->sort('created' , 'DESC')
         ->execute();
 
      $term_view_builder = $entity_type_manager->getViewBuilder('taxonomy_term');

@@ -10,20 +10,7 @@
 %}
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
-
-
-
-{#  {% if display_submitted %}#}
-{#    <footer class="node__meta">#}
-{#      {{ author_picture }}#}
-{#      <div{{ author_attributes.addClass('node__submitted') }}>#}
-{#        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}#}
-{#        {{ metadata }}#}
-{#      </div>#}
-{#    </footer>#}
-{#  {% endif %}#}
-
-  <div{{ content_attributes.addClass('node__content') }}>
+  <div{{ content_attributes.addClass('node__content', 'node__standart') }}>
     <a class="cover-link" href="{{ url }}">
       <div class="covered-div">
         <div class="every-image-banner">
@@ -41,11 +28,4 @@
           {% endif %}
       </div>
     </a>
-
-
-{#    {% if content.field_category %}#}
-{#      <div class="category-{{ content.field_category[0]['#title']|lower }}">{{ content.field_category }}</div>#}
-{#    {% endif %}#}
-{#  </div>#}
-
 </article>
