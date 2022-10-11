@@ -21,6 +21,7 @@ class TopHeadlinesBlock extends BlockBase {
       ->condition('type', 'top_headline_news', '=')
       ->condition('field_news_type', 'top', '=')
       ->range(0, 5)
+      ->sort('created' , 'DESC')
       ->execute();
 
 

@@ -61,7 +61,7 @@ class OpenWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
         $temp[date('D', $item['dt'])][date('G', $item['dt']) . ':00'] = $item['main']['temp'];
         $image[date('D', $item['dt'])][$item['main']['temp']] = 'https://openweathermap.org/img/w/' . $item['weather'][0]['icon'] . '.png';
       }
-      
+
       foreach ($temp as $key => $item) {
         $data['list'][] = [
           'day' => $key,

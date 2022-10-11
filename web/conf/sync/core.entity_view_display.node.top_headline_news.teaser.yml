@@ -9,8 +9,8 @@ dependencies:
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_news_type
     - field.field.node.top_headline_news.field_tag
+    - image.style.custom
     - node.type.top_headline_news
-    - responsive_image.styles.wide
   module:
     - blazy
     - entity_reference_revisions
@@ -63,9 +63,9 @@ content:
       box_media_style: ''
       loading: ''
       preload: false
-      responsive_image_style: wide
+      responsive_image_style: ''
       box_style: ''
-      image_style: ''
+      image_style: custom
       media_switch: ''
       ratio: ''
       thumbnail_style: ''
