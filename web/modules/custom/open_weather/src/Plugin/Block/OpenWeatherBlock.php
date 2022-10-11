@@ -47,30 +47,39 @@ class OpenWeatherBlock extends BlockBase implements ContainerFactoryPluginInterf
   /**
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function build() {
+  public function build(): array {
+    // Get weather forecast.
     $weather = $this->open_weather->getForecast($_SERVER['REMOTE_ADDR']);
     $data = [];
     if ($weather) {
-      $data['city'] = $weather['city']['name'];
+      $data['city'] = $weather['city']['name'] . ' ' . $this->t('weather');
       $data['list'] = [];
+      // Temporary arrays to create final array.
+      $temp = [];
+      $image = [];
       foreach ($weather['list'] as $item) {
-        $data['list'][date('l', $item['dt'])] = [
-          'temp' => $item['main']['temp'],
-          'time' => date('l', $item['dt']),
-          'icon_url' => 'https://openweathermap.org/img/w/' . $item['weather'][0]['icon'] . '.png',
+        $temp[date('D', $item['dt'])][date('G', $item['dt']) . ':00'] = $item['main']['temp'];
+        $image[date('D', $item['dt'])][$item['main']['temp']] = 'https://openweathermap.org/img/w/' . $item['weather'][0]['icon'] . '.png';
+      }
+      
+      foreach ($temp as $key => $item) {
+        $data['list'][] = [
+          'day' => $key,
+          'max_temp' => round(max($item),0) . '°C',
+          'min_temp' => round(min($item), 0) . '°C',
+          'icon_url' => $image[$key][intval(max($item))],
         ];
       }
-//      $data['current_temp'] = round($weather['main']['temp'], 0) . '°C';
-//      $data['feel_temp'] = round($weather['main']['feels_like'], 0) . '°C';
-//      $data['icon'] = $weather['weather'][0]['icon'];
-//      $data['text'] = $this->t('Now');
-
     }
     return [
       '#theme'    => 'open_weather',
       '#data'     => $data,
       '#attached' => [
         'library' => ['open_weather/open_weather'],
+      ],
+      '#cache' => [
+        'max-age' => 360,
+        'contexts' => ['user'],
       ],
     ];
 

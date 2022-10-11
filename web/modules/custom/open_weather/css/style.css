@@ -1,4 +1,48 @@
-.open-weather-block {
+.weather {
+  padding-top: 1em;
+  padding-left: 8px;
+}
+
+.weather-item {
+  text-align: center;
+  margin-right: 1em;
+}
+
+.weather-item-block {
   display:flex;
   align-items: center;
+}
+
+.weather-item-info {
+  display:flex;
+  flex-direction: column;
+}
+
+.weather-day {
+  font-weight: bold !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.weather-max-temp {
+  font-weight: bold !important;
+  font-size: 1.17em;
+  margin-bottom: 0;
+}
+
+.weather-min-temp {
+  color: #4a4a4a;
+  margin-bottom: 0;
+}
+
+.weather-list {
+  margin-top: 1em;
+}
+
+.weather-list li {
+  list-style: none;
+}
+
+.weather-city {
+  text-transform: uppercase;
 }

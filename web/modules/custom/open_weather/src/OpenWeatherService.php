@@ -55,8 +55,10 @@ class OpenWeatherService {
   }
 
   /**
-   * @param $ip
+   * Get current weather.
    *
+   * @param $ip
+   *   IP address.
    * @return array
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
@@ -79,8 +81,10 @@ class OpenWeatherService {
   }
 
   /**
-   * @param $ip
+   * Get forecast.
    *
+   * @param $ip
+   *   IP address.
    * @return array
    * @throws \GuzzleHttp\Exception\GuzzleException
    */

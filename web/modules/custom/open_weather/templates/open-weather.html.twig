@@ -1,17 +1,19 @@
 {% if data %}
-  <div class="open-weather-block">
-    <span class="open-weather-city">{{ data.city }}</span>
-    {% for item in data.list %}
-      <div>
-        <img src="{{ item.icon_url }}">
-        <span>{{ item.time }}</span>
-        <span>{{ item.temp }}</span>
-      </div>
-    {% endfor %}
-{#    <img src="https://openweathermap.org/img/w/{{ data.icon }}.png">#}
-{#    <div>#}
-{#      <span class="open-weather-text">{{ data.text }}</span><br>#}
-{#      <span class="open-weather-temp">{{ data.current_temp }}</span>#}
-{#    </div>#}
+  <div class="weather">
+    <h4 class="weather-city">{{ data.city }}</h4>
+    <ul class="weather-list">
+      {% for item in data.list %}
+        <li class="weather-item">
+          <p class="weather-day">{{ item.day }}</p>
+          <div class="weather-item-block">
+            <img src="{{ item.icon_url }}">
+            <div class="weather-item-info">
+              <p class="weather-max-temp">{{ item.max_temp }}</p>
+              <p class="weather-min-temp">{{ item.min_temp }}</p>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 {% endif %}
