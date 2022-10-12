@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.standart
   module:
     - blazy
     - node
@@ -217,14 +217,14 @@ display:
         type: blazy
         options:
           style: column
-          grid: '2'
+          grid: '4'
           grid_medium: ''
           grid_small: ''
       row:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: standart
       query:
         type: views_query
         options:
@@ -236,20 +236,7 @@ display:
       relationships: {  }
       link_display: page_1
       link_url: ''
-      header:
-        entity_taxonomy_term:
-          id: entity_taxonomy_term
-          table: views
-          field: entity_taxonomy_term
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: entity
-          empty: true
-          target: '{{ raw_arguments.tid }}'
-          view_mode: full
-          tokenize: true
-          bypass_access: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
