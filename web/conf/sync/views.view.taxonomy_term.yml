@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.standart
   module:
-    - blazy
     - node
     - taxonomy
     - user
@@ -214,12 +213,16 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: blazy
+        type: grid
         options:
-          style: column
-          grid: '4'
-          grid_medium: ''
-          grid_small: ''
+          uses_fields: false
+          columns: 4
+          automatic_width: true
+          alignment: horizontal
+          row_class_custom: ''
+          row_class_default: true
+          col_class_custom: ''
+          col_class_default: true
       row:
         type: 'entity:node'
         options:
