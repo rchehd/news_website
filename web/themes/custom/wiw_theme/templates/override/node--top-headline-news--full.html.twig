@@ -80,13 +80,19 @@
 {{ attach_library('classy/node') }}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('node__content') }}>
-    <div>
-      {{ content.field_image_banner }}
-      <div class="image-title">
+    <div class="node-full-head">
+      <div class="image-title-full">
           <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+            {{ label }}
           </h2>
       </div>
+      <div class="node-info">
+        <i class="fa-regular fa-clock"></i>
+        <div class="node-date-creation">{{ date_creations  }}</div>
+        <div class="node-full-category category-{{ content.field_category[0]['#title']|lower }}-full">{{ content.field_category }}</div>
+        {{ metadata }}
+      </div>
+      {{ content.field_image_banner }}
     </div>
     {{ content.field_content_paragraph }}
     {{ content.field_taxonomy }}

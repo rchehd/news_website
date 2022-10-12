@@ -1,0 +1,102 @@
+.image-title-full {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.node-info {
+  display: flex;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.node-date-creation {
+  padding-right: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
+  border-right: 1px solid #dbdbdb;
+  font-size: .8125rem;
+}
+
+.node-full-category {
+  padding-right: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #dbdbdb;
+}
+
+.category-politic-full a {
+  color: $politic-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $politic-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-sport-full a {
+  color: $sport-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $sport-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-travel-full a {
+  color: $travel-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $travel-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-science-full a {
+  color: $science-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $science-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-war-full a {
+  color: $war-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $war-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-culture-full a {
+  color: $culture-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $culture-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-youtube-full a {
+  color: $youtube-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $youtube-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.category-weather-full a {
+  color: $weather-color;
+  font-size: .8125rem;
+  &:hover {
+    color: $weather-color !important;
+    text-decoration: underline !important;
+  }
+}
+
+.node-full-head {
+  margin-bottom: 24px;
+}

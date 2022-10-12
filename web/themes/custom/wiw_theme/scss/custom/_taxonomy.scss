@@ -1,6 +1,6 @@
 .category-politic h2 a div,
 .category-politic .field--name-field-category a {
-  border-left: 0.2em solid #0842ff;
+  border-left: 0.2em solid $politic-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
@@ -8,49 +8,49 @@
 
 .category-sport h2 a div,
 .category-sport .field--name-field-category a {
-  border-left: 0.2em solid #ff0000;
+  border-left: 0.2em solid $sport-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-travel h2 a div,
 .category-travel .field--name-field-category a {
-  border-left: 0.2em solid #039632;
+  border-left: 0.2em solid $travel-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-science h2 a div,
 .category-science .field--name-field-category a {
-  border-left: 0.2em solid #a2e3fc;
+  border-left: 0.2em solid $science-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-war h2 a div,
 .category-war .field--name-field-category a {
-  border-left: 0.2em solid #f79e02;
+  border-left: 0.2em solid $war-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-culture h2 a div,
 .category-culture .field--name-field-category a {
-  border-left: 0.2em solid #9008ff;
+  border-left: 0.2em solid $culture-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-youtube h2 a div,
 .category-youtube .field--name-field-category a {
-  border-left: 0.2em solid #e87289;
+  border-left: 0.2em solid $youtube-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
 
 .category-weather h2 a div
 .category-weather .field--name-field-category a {
-  border-left: 0.2em solid #c3effa;
+  border-left: 0.2em solid $weather-color;
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
