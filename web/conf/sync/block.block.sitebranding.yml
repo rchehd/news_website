@@ -1,0 +1,23 @@
+uuid: 43caf2a1-59d1-4071-8986-276da77e511d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wiw_theme
+id: sitebranding
+theme: wiw_theme
+region: footer
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

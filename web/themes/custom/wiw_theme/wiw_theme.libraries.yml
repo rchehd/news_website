@@ -3,3 +3,6 @@ global-styling:
     theme:
       css/style.css: {}
       css/style-51.css: {}
+  js:
+    js/header.js: { minified: true}
+

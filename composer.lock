@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3bef87b575779642bf5d86ec7ccbe5a",
+    "content-hash": "ea3fa6bb917dbe6c0b59e25808687be5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2597,6 +2597,51 @@
             }
         },
         {
+            "name": "drupal/fontawesome_menu_icons",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/fontawesome_menu_icons.git",
+                "reference": "8.x-1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fontawesome_menu_icons-8.x-1.9.zip",
+                "reference": "8.x-1.9",
+                "shasum": "53972471ed75dc907dac327daf80af5339f7085c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "drupal/fontawesome": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.9",
+                    "datestamp": "1601802966",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "lonalore",
+                    "homepage": "https://www.drupal.org/user/1539304"
+                }
+            ],
+            "description": "FontAwesome Menu Icons.",
+            "homepage": "https://www.drupal.org/project/fontawesome_menu_icons",
+            "support": {
+                "source": "https://git.drupalcode.org/project/fontawesome_menu_icons"
+            }
+        },
+        {
             "name": "drupal/fontyourface",
             "version": "3.6.0",
             "source": {
@@ -3256,6 +3301,50 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/smart_trim",
                 "issues": "https://drupal.org/project/issues/smart_trim"
+            }
+        },
+        {
+            "name": "drupal/sticky",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sticky.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sticky-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "26855934f046d6b95ca21544a581ae875157115f"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1627460893",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "f0ns",
+                    "homepage": "https://www.drupal.org/user/723426"
+                }
+            ],
+            "description": "Sticky is a module that gives you the ability to make any element on your website to always stay visible.",
+            "homepage": "https://www.drupal.org/project/sticky",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sticky"
             }
         },
         {

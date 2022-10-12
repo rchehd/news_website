@@ -112,3 +112,33 @@ ul.sf-menu.sf-style-white {
 .navbar-nav li a:hover {
   background: #f0f0f0;
 }
+
+#header.is-sticky {
+  padding-bottom: var(--offset-header);
+}
+
+#header.is-sticky .navbar {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  height: var(--stick-height);
+}
+
+#header {
+  background-color: white;
+  transition: transform 0.6s;
+  z-index: 101;
+}
+
+#header img {
+  transition: transform 0.6s;
+}
+
+#header .navbar {
+  transition: height 1s ease;
+}
+
+#header.is-sticky img {
+  transform: scale(0.8);
+}
+
