@@ -85,18 +85,25 @@ class OpenWeatherService {
    *
    * @param $ip
    *   IP address.
+   *
    * @return array
    * @throws \GuzzleHttp\Exception\GuzzleException
+   * @throws \Drupal\Core\TempStore\TempStoreException
    */
   public function getForecast($ip): array {
     $details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
     $city = $details->city ?? 'London';
+    if($this->tempstore->get($city)) {
+      return $this->tempstore->get($city);
+    }
     $uri = $this::OPEN_WEATHER_FORECAST . 'q=' . $city . '&units=metric&APPID=' . $this->api_key;
     $response = $this->clientFactory
       ->fromOptions()
       ->request('GET', $uri);
     if ($response->getStatusCode() == 200) {
-      return json_decode($response->getBody()->getContents(), TRUE);
+      $result = json_decode($response->getBody()->getContents(), TRUE);
+      $this->tempstore->set($city, $result);
+      return $result;
     }
     else {
       $response_body = json_encode($response->getBody());

@@ -1,8 +1,14 @@
 services:
+  open_weather_tempstore.private:
+    class: Drupal\Core\TempStore\PrivateTempStoreFactory
+    arguments: [ '@keyvalue.expirable', '@lock', '@current_user', '@request_stack', 360 ]
+    tags:
+      - { name: backend_overridable }
   open_weather:
     class: Drupal\open_weather\OpenWeatherService
     arguments:
       - '@config.factory'
       - '@http_client_factory'
       - '@logger.factory'
-      - '@tempstore.private'
+      - '@open_weather_tempstore.private'
+
