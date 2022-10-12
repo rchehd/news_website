@@ -1,0 +1,23 @@
+uuid: 3fd6a97b-3558-4b47-97b4-1c1c5ee0f2f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.top_headline_news
+  module:
+    - link
+id: node.top_headline_news.field_source
+field_name: field_source
+entity_type: node
+bundle: top_headline_news
+label: 'Original source'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

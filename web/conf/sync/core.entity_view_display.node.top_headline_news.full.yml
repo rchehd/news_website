@@ -1,24 +1,25 @@
-uuid: b6529164-ad14-4d93-94ca-6c2db0fb526e
+uuid: 714aa37a-8f84-4f3b-ab9c-23fe6aefcb6b
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.sub_teaser
+    - core.entity_view_mode.node.full
     - field.field.node.top_headline_news.field_category
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_news_type
     - field.field.node.top_headline_news.field_source
     - field.field.node.top_headline_news.field_tag
-    - image.style.custom
     - node.type.top_headline_news
   module:
     - blazy
+    - entity_reference_revisions
+    - link
     - user
-id: node.top_headline_news.sub_teaser
+id: node.top_headline_news.full
 targetEntityType: node
 bundle: top_headline_news
-mode: sub_teaser
+mode: full
 content:
   field_category:
     type: entity_reference_label
@@ -26,7 +27,16 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
+    region: content
+  field_content_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
     region: content
   field_image_banner:
     type: blazy_media
@@ -56,20 +66,37 @@ content:
       preload: false
       responsive_image_style: ''
       box_style: ''
-      image_style: custom
+      image_style: ''
       media_switch: ''
-      ratio: ''
+      ratio: '16:9'
       thumbnail_style: ''
       grid: ''
       grid_medium: ''
       grid_small: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 1
+    region: content
+  field_source:
+    type: link
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_tag:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
-  field_content_paragraph: true
   field_news_type: true
-  field_source: true
-  field_tag: true
   langcode: true
   links: true

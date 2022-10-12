@@ -94,7 +94,15 @@
       </div>
       {{ content.field_image_banner }}
     </div>
-    {{ content.field_content_paragraph }}
-    {{ content.field_taxonomy }}
+    {% if content.field_content_paragraph %}
+      <div class="node-full-content">
+        {{ content.field_content_paragraph }}
+      </div>
+    {% endif %}
+    {% if content.field_source['#object'] %}
+      <div class="node-full-source">
+        {{ content.field_source }}
+      </div>
+    {% endif %}
   </div>
 </article>

@@ -100,3 +100,19 @@
 .node-full-head {
   margin-bottom: 24px;
 }
+
+.node-full-source .field__label {
+  font-weight: bold;
+}
+
+.node-full-source {
+  padding-top: 8px;
+  margin-top: 16px;
+  padding-bottom: 8px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.node-full-source .field__item a {
+  color: black;
+}

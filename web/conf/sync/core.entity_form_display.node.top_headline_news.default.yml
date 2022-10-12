@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_news_type
+    - field.field.node.top_headline_news.field_source
     - field.field.node.top_headline_news.field_tag
     - node.type.top_headline_news
   module:
+    - link
     - media_library
     - paragraphs
     - path
@@ -60,6 +62,14 @@ content:
     weight: 13
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_source:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_tag:
     type: entity_reference_autocomplete

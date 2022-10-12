@@ -23,6 +23,10 @@ class GoogleNewsAPIController extends ControllerBase {
     $node = Node::create(['type' => 'top_headline_news']);
     $node->setTitle($article['title']);
     $node->set('field_news_type', $type);
+    $node->set('field_source', [
+      'uri'=> $article['url'],
+      'title' => $article['source']['name']
+    ]);
 
     $data = file_get_contents($article['urlToImage']);
     $regex = preg_match('/[\w-]+\.(jpg|png|jpeg)/', $article['urlToImage'], $matches);

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.top_headline_news.field_content_paragraph
     - field.field.node.top_headline_news.field_image_banner
     - field.field.node.top_headline_news.field_news_type
+    - field.field.node.top_headline_news.field_source
     - field.field.node.top_headline_news.field_tag
     - image.style.custom
     - node.type.top_headline_news
@@ -77,6 +78,7 @@ content:
     region: content
 hidden:
   field_news_type: true
+  field_source: true
   field_tag: true
   langcode: true
   links: true
