@@ -1,0 +1,22 @@
+uuid: cbc3705a-0fbc-4df2-81ff-f034e75aaee0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: set_alias_to_news_content
+label: 'Set alias to news content'
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  26b008d6-ed1d-490c-bcb8-51de30599af9:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 26b008d6-ed1d-490c-bcb8-51de30599af9
+    context_mapping:
+      node: node
+    bundles:
+      top_headline_news: top_headline_news
+selection_logic: and
+weight: -5
+relationships: {  }

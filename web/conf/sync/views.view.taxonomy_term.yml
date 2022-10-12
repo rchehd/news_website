@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
   module:
+    - blazy
     - node
     - taxonomy
     - user
@@ -213,15 +214,16 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: default
+        type: blazy
         options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
+          style: column
+          grid: '2'
+          grid_medium: ''
+          grid_small: ''
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       query:
         type: views_query

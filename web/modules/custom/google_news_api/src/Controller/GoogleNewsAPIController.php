@@ -7,6 +7,7 @@ use Drupal\Core\File\FileSystemInterface;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\pathauto\PathautoState;
 
 class GoogleNewsAPIController extends ControllerBase {
 

@@ -54,3 +54,17 @@
   padding-left: 0.5rem;
   line-height: 0.9em;
 }
+
+.category-teaser .field--name-field-category {
+  margin-top: 0.75rem;
+  color: #d3d3d3;
+  font-size: .875rem;
+}
+
+.category-teaser .field--name-field-category a{
+  color: #d3d3d3;
+  font-size: .875rem;
+  &:hover {
+    color: white !important;
+  }
+}

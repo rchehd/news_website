@@ -1,0 +1,10 @@
+uuid: de905c6b-cbb5-4753-9e09-3dd92d900c00
+langcode: en
+status: true
+dependencies:
+  module:
+    - fontyourface
+id: font.token
+label: Token
+targetEntityType: font
+cache: true
