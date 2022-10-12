@@ -1,0 +1,25 @@
+uuid: 2e954b9c-b91c-4c58-a8de-6274c6cf561f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ce17c3a7-59bb-476e-9948-3165aa428f04'
+  module:
+    - block_content
+  theme:
+    - wiw_theme
+id: siteauthor
+theme: wiw_theme
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:ce17c3a7-59bb-476e-9948-3165aa428f04'
+settings:
+  id: 'block_content:ce17c3a7-59bb-476e-9948-3165aa428f04'
+  label: 'Site author'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
