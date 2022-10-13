@@ -42,6 +42,7 @@
 
 .ever-list {
   display: flex;
+  padding: 0;
 }
 
 .ever-block {

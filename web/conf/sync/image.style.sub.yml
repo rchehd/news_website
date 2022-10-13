@@ -5,11 +5,11 @@ dependencies: {  }
 name: sub
 label: Sub-teaser
 effects:
-  6a6b61f7-3a6b-4aa9-b31e-9da7ef2f9416:
-    uuid: 6a6b61f7-3a6b-4aa9-b31e-9da7ef2f9416
+  9408c755-0511-481b-b97a-837900c63e6b:
+    uuid: 9408c755-0511-481b-b97a-837900c63e6b
     id: image_scale_and_crop
     weight: 1
     data:
-      width: 1600
-      height: 900
+      width: 312
+      height: 171
       anchor: center-center
