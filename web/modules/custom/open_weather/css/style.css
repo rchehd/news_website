@@ -37,6 +37,8 @@
 
 .weather-list {
   margin-top: 1em;
+  display: flex;
+  padding-left: 0;
 }
 
 .weather-list li {
