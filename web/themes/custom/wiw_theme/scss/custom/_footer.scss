@@ -1,6 +1,9 @@
 footer {
   padding: $footer-padding;
   background-color: #252527;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   &.footer-dark {
     @include b5-make-link($light, none, $light, none);
