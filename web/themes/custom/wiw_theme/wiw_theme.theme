@@ -36,6 +36,7 @@ function wiw_theme_preprocess_page(&$variables) {
   $variables['password'] = t("Forgot password?");
   $variables['congratulation'] = t("Log in to your NEWS account");
   $variables['congratulation_reg'] = t("Create your NEWS account");
+  $variables['congratulation_pass'] = t("Restore your NEWS account");
   $variables['sign_in_text'] = t("Already have an account?");
   $variables['sign_in_link'] = t("Sign in.");
 
@@ -73,4 +74,10 @@ function wiw_theme_form_user_register_form_process_pass(&$element, FormStateInte
   $element['pass2']['#title_display'] = 'invisible';
   $element['#description_display'] = 'invisible';
   return $element;
+}
+
+function wiw_theme_form_user_pass_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
+  $d=0;
+  $form['name']['#attributes']['placeholder'] = t( 'Email address' );
+  $form['name']['#title_display'] = 'invisible';
 }

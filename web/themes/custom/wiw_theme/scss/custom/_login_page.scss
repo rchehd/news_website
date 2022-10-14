@@ -54,6 +54,7 @@
 .login-change-pass a {
   color: white;
 }
+#user-pass input,
 #user-register-form input,
 #user-login-form input {
   font-size: 16px;
@@ -69,6 +70,7 @@
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
+#user-pass #edit-submit,
 #user-register-form #edit-submit,
 #user-login-form #edit-submit {
   background-color: black;
