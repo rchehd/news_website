@@ -1,9 +1,9 @@
 footer {
   padding: $footer-padding;
   background-color: #252527;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  //position: absolute;
+  //bottom: 0;
+  //width: 100%;
 
   &.footer-dark {
     @include b5-make-link($light, none, $light, none);
@@ -16,7 +16,7 @@ footer {
 }
 
 .mt-auto {
-  margin-top: 2em !important;
+  padding-top: 2em !important;
 }
 
 footer .region-footer {

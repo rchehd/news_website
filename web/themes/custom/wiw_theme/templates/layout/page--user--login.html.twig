@@ -13,14 +13,29 @@
 %}
 
 <main role="main" class="login-page">
-  {% if page.nav_branding %}
-  {{ page.nav_branding['wiw_theme_branding'] }}
-  {% endif %}
-
-  <div class="order-1 order-lg-2 {{ content_classes }}">
-    {{ page.content }}
+  <div class="login-page-wrapper">
+    <div class="login-form-block">
+      <div class="login-form-logo">
+        {% if page.nav_branding %}
+          {{ page.nav_branding['wiw_theme_branding'] }}
+        {% endif %}
+      </div>
+      <h1 class="login-congratulation">{{ congratulation }}</h1>
+      <div class="login-sign-up">
+        <span>{{ sign_up_text }}</span>
+        <a href="/user/register">{{ sign_up_link }}</a>
+      </div>
+      <div class="order-1 order-lg-2 {{ content_classes }}">
+        {{ page.content['wiw_theme_content'] }}
+        <div class="login-change-pass">
+          <a href="/user/password">{{ password }}</a>
+        </div>
+      </div>
+    </div>
   </div>
+
 </main>
+
 
 {% if page.footer %}
   <footer class="mt-auto {{ footer_classes }}">
