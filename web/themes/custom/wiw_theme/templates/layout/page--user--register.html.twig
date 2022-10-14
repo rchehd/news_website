@@ -1,0 +1,43 @@
+{%
+  set nav_classes = 'navbar navbar-expand-lg' ~
+  (b5_navbar_schema != 'none' ? " navbar-#{b5_navbar_schema}" : ' ') ~
+  (b5_navbar_schema != 'none' ? (b5_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
+  (b5_navbar_bg_schema != 'none' ? " bg-#{b5_navbar_bg_schema}" : ' ')
+%}
+
+{%
+  set footer_classes = ' ' ~
+  (b5_footer_schema != 'none' ? " footer-#{b5_footer_schema}" : ' ') ~
+  (b5_footer_schema != 'none' ? (b5_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
+  (b5_footer_bg_schema != 'none' ? " bg-#{b5_footer_bg_schema}" : ' ')
+%}
+
+<main role="main" class="login-page">
+  <div class="login-page-wrapper">
+    <div class="login-form-block">
+      <div class="login-form-logo">
+        {% if page.nav_branding %}
+          {{ page.nav_branding['wiw_theme_branding'] }}
+        {% endif %}
+      </div>
+      <h1 class="login-congratulation">{{ congratulation_reg }}</h1>
+      <div class="login-sign-up">
+        <span>{{ sign_in_text }}</span>
+        <a href="/user/login">{{ sign_in_link }}</a>
+      </div>
+      <div class="order-1 order-lg-2 {{ content_classes }}">
+        {{ page.content['wiw_theme_content'] }}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+{% if page.footer %}
+  <footer class="mt-auto {{ footer_classes }}">
+    <div class="{{ b5_top_container }}">
+      {{ page.footer }}
+    </div>
+  </footer>
+{% endif %}

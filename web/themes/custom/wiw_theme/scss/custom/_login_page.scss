@@ -54,7 +54,7 @@
 .login-change-pass a {
   color: white;
 }
-
+#user-register-form input,
 #user-login-form input {
   font-size: 16px;
   border: 1px solid #b1b1b1;
@@ -69,6 +69,7 @@
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
+#user-register-form #edit-submit,
 #user-login-form #edit-submit {
   background-color: black;
   color: white;
@@ -80,7 +81,7 @@
   .form-item, .form-actions {
     margin-top: 1.5em;
   }
-}  
+}
 
 .login-change-pass {
     display: flex;

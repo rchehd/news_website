@@ -69,6 +69,7 @@
         "drupal/taxonomy_class": "^1.0",
         "drupal/taxonomy_menu": "^3.5",
         "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/user_registrationpassword": "^2.0@alpha",
         "geocoder-php/google-maps-provider": "^4.7",
         "jcobhams/newsapi": "^1.0"
     },

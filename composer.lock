@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "998592348cf05dc69cfd8c38c5d42a3e",
+    "content-hash": "814ed5d82af186aa74b8049698da3cd0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4017,6 +4017,62 @@
             "homepage": "https://www.drupal.org/project/ultimate_cron",
             "support": {
                 "source": "https://git.drupalcode.org/project/ultimate_cron"
+            }
+        },
+        {
+            "name": "drupal/user_registrationpassword",
+            "version": "2.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/user_registrationpassword.git",
+                "reference": "2.0.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/user_registrationpassword-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "1a6b17664613c5ef5197f424da7f1f137aafb528"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1648560862",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Rob C",
+                    "homepage": "https://www.drupal.org/user/313382"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                },
+                {
+                    "name": "intrafusion",
+                    "homepage": "https://www.drupal.org/user/424800"
+                },
+                {
+                    "name": "jide",
+                    "homepage": "https://www.drupal.org/user/146088"
+                }
+            ],
+            "description": "Let users register with a password on the registration form when verification mail is required.",
+            "homepage": "https://www.drupal.org/project/user_registrationpassword",
+            "support": {
+                "source": "https://git.drupalcode.org/project/user_registrationpassword"
             }
         },
         {
@@ -9702,7 +9758,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "drupal/block_field": 5,
-        "drupal/ultimate_cron": 15
+        "drupal/ultimate_cron": 15,
+        "drupal/user_registrationpassword": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,

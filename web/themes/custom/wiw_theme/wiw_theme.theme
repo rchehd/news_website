@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element\PasswordConfirm;
+
 /**
  * @file
  * World in word theme theme file.
@@ -32,13 +35,16 @@ function wiw_theme_preprocess_page(&$variables) {
   $variables['sign_up_link'] = t("Sign up.");
   $variables['password'] = t("Forgot password?");
   $variables['congratulation'] = t("Log in to your NEWS account");
+  $variables['congratulation_reg'] = t("Create your NEWS account");
+  $variables['sign_in_text'] = t("Already have an account?");
+  $variables['sign_in_link'] = t("Sign in.");
+
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
 function wiw_theme_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
-  $d=0;
   $form['name']['#attributes']['placeholder'] = t( 'Email address' );
   $form['pass']['#attributes']['placeholder'] = t( 'Password' );
   $form['name']['#title_display'] = 'invisible';
@@ -47,4 +53,24 @@ function wiw_theme_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStat
   $form['pass']['#description_display'] = 'invisible';
 
 
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function wiw_theme_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void {
+  $form['account']['mail']['#attributes']['placeholder'] = t( 'Email address' );
+  $form['account']['mail']['#title_display'] = 'invisible';
+  $form['account']['mail']['#description_display'] = 'invisible';
+  $form['account']['pass']['#process'][] = 'wiw_theme_form_user_register_form_process_pass';
+}
+
+function wiw_theme_form_user_register_form_process_pass(&$element, FormStateInterface $form_state, &$complete_form): array {
+  $element = PasswordConfirm::processPasswordConfirm($element, $form_state, $complete_form);
+  $element['pass1']['#placeholder'] = t('Password ');
+  $element['pass2']['#placeholder'] = t('Confirm password');
+  $element['pass1']['#title_display'] = 'invisible';
+  $element['pass2']['#title_display'] = 'invisible';
+  $element['#description_display'] = 'invisible';
+  return $element;
 }
