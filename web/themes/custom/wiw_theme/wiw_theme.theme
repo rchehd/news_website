@@ -16,6 +16,8 @@ function wiw_theme_preprocess_node(&$variables): void {
     $node = $variables['node'];
     $date = date('j F Y',$node->get('created')->value);
     $variables['date_creations'] = $date;
+    $variables['time_ago'] = \Drupal::service('date.formatter')
+      ->formatTimeDiffSince($node->get('created')->value) . ' ago';
   }
 }
 

@@ -1,0 +1,36 @@
+uuid: 3722b920-8601-48d5-9978-ccb83175bd98
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.top_block
+    - field.field.node.top_headline_news.field_category
+    - field.field.node.top_headline_news.field_content_paragraph
+    - field.field.node.top_headline_news.field_image_banner
+    - field.field.node.top_headline_news.field_news_type
+    - field.field.node.top_headline_news.field_source
+    - field.field.node.top_headline_news.field_tag
+    - node.type.top_headline_news
+  module:
+    - user
+id: node.top_headline_news.top_block
+targetEntityType: node
+bundle: top_headline_news
+mode: top_block
+content:
+  field_category:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_content_paragraph: true
+  field_image_banner: true
+  field_news_type: true
+  field_source: true
+  field_tag: true
+  langcode: true
+  links: true

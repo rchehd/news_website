@@ -1,0 +1,10 @@
+uuid: 12dd4771-0bc0-425e-8f3e-f673f4036504
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.top_block
+label: 'Top block'
+targetEntityType: node
+cache: true
